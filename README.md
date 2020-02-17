@@ -1,6 +1,6 @@
 # Gwent
 ## NAMES
-  Roger Lorelli
-  Maxwell Light
-  Kevin Cotto-Lazo
-  Daniel Quintana
+  Roger Lorelli. 
+  Maxwell Light. 
+  Kevin Cotto-Lazo. 
+  Daniel Quintana. 
