@@ -1,5 +1,4 @@
 # Gwent
 
-#NAMES
-  Roger Lorelli
+# NAMES
   Maxwell Light
