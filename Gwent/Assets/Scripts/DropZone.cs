@@ -7,7 +7,7 @@ public class DropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 {
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log(eventData.pointerDrag.name + "entered " + gameObject.name);
+        
     }
     public void OnPointerExit(PointerEventData eventData)
     {
