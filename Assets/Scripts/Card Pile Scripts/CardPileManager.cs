@@ -31,14 +31,14 @@ public class CardPileManager : MonoBehaviour
     public void AddCardToPile(GameObject card)
     {
         cards.Add(card);
-        card.transform.parent = gameObject.transform;
+        card.transform.SetParent(gameObject.transform);
     }
 
     //Remove a card from card pile
     public void RemoveCardFromPile(GameObject card)
     {
         cards.Remove(card);
-        card.transform.parent = null;
+        card.transform.SetParent(null);
     }
 
     //Transfer a card within this card pile into another
@@ -46,7 +46,6 @@ public class CardPileManager : MonoBehaviour
     {
         RemoveCardFromPile(card);
         cardPile.GetComponent<CardPileManager>().AddCardToPile(card);
-        card.transform.parent = cardPile.transform;
     }
 
     //Returns index of the first instance of this card in card pile;
