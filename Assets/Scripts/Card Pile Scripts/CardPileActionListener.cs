@@ -8,17 +8,18 @@ public class CardPileActionListener : MonoBehaviour, IPointerEnterHandler, IPoin
 {
 
     private Image highlight;
+    private bool isSelectableCardPile = false;
     // Start is called before the first frame update
     void Start()
     {
         highlight = GetComponent<Image>();
-        highlight.enabled = false;
+        highlight.color = new Color(highlight.color.r, highlight.color.g, highlight.color.b, 0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && highlight.IsActive())
+        if (Input.GetMouseButtonDown(1) && isSelectableCardPile)
         {
             Debug.Log("Action Triggered!\nOpening card pile set up\nCreating card pile set up object");
         }
@@ -27,12 +28,14 @@ public class CardPileActionListener : MonoBehaviour, IPointerEnterHandler, IPoin
     //Enables the highlighted image for this card pile
     public void OnPointerEnter(PointerEventData eventData)
     {
-        highlight.enabled = true;
+        highlight.color = new Color(highlight.color.r, highlight.color.g, highlight.color.b, 100f);
+        isSelectableCardPile = true;
     }
 
     //Disables the highlighted image for this card pile
     public void OnPointerExit(PointerEventData eventData)
     {
-        highlight.enabled = false;
+        highlight.color = new Color(highlight.color.r, highlight.color.g, highlight.color.b, 0f);
+        isSelectableCardPile = false;
     }
 }

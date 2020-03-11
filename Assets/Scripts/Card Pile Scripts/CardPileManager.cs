@@ -2,41 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CardPileType
+{
+    NO_CARD_PILE_TYPE = 0,
+    HAND_PILE = 1,
+    DISCARD_PILE = 2,
+    DECK_PILE = 3,
+    CLOSE_COMBAT_FIELD_PILE = 4,
+    RANGE_COMBAT_FIELD_PILE = 5,
+    SIEGE_COMBAT_FIELD_PILE = 6,
+    MORALE_BOOST_FIELD_PILE = 7, //6 total on board
+    EFFECT_FIELD_PILE = 8,
+    OPPONENT_HAND_PILE = 9,
+    OPPONENT_DISCARD_PILE = 10,
+    OPPONENT_DECK_PILE = 11,
+    OPPONENT_CLOSE_COMBAT_FIELD_PILE = 12,
+    OPPONENT_RANGE_COMBAT_FIELD_PILE = 13,
+    OPPONENT_SIEGE_COMBAT_FIELD_PILE = 14
+}
+
 public class CardPileManager : MonoBehaviour
 {
 
-    public enum CardPileType
-    {
-        NO_CARD_PILE_TYPE = 0,
-        HAND_PILE = 1,
-        DISCARD_PILE = 2,
-        DECK_PILE = 3,
-        CLOSE_COMBAT_FIELD_PILE = 4,
-        RANGE_COMBAT_FIELD_PILE = 5,
-        SIEGE_COMBAT_FIELD_PILE = 6,
-        MORALE_BOOST_FIELD_PILE = 7, //6 total on board
-        EFFECT_FIELD_PILE = 8,
-        OPPONENT_HAND_PILE = 9,
-        OPPONENT_DISCARD_PILE = 10,
-        OPPONENT_DECK_PILE = 11,
-        OPPONENT_CLOSE_COMBAT_FIELD_PILE = 12,
-        OPPONENT_RANGE_COMBAT_FIELD_PILE = 13,
-        OPPONENT_SIEGE_COMBAT_FIELD_PILE = 14
-    }
-
-    [SerializeField] private CardPileType type = (CardPileType)4;
+    [SerializeField] private CardPileType type = CardPileType.NO_CARD_PILE_TYPE;
     [SerializeField] private List<GameObject> cards = null;
 
     //add a card to car pile
     public void AddCardToPile(GameObject card)
     {
         cards.Add(card);
+        card.transform.parent = gameObject.transform;
     }
 
     //Remove a card from card pile
     public void RemoveCardFromPile(GameObject card)
     {
         cards.Remove(card);
+        card.transform.parent = null;
     }
 
     //Transfer a card within this card pile into another
@@ -44,6 +46,7 @@ public class CardPileManager : MonoBehaviour
     {
         RemoveCardFromPile(card);
         cardPile.GetComponent<CardPileManager>().AddCardToPile(card);
+        card.transform.parent = cardPile.transform;
     }
 
     //Returns index of the first instance of this card in card pile;

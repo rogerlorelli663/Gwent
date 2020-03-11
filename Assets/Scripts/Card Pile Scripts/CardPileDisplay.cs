@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class CardPileDisplay : MonoBehaviour
 {
+    //Spacing of the outer vertical edges
+    [SerializeField] float borderSpace = 0;
+
     //Component fields required for Card Display
     private CardPileManager cpm;
     private GridLayoutGroup grid;
@@ -21,11 +24,11 @@ public class CardPileDisplay : MonoBehaviour
         grid = GetComponent<GridLayoutGroup>();
         panel = GetComponent<RectTransform>();
 
-        cardPileWidth = panel.rect.width;
+        cardPileWidth = panel.rect.width - borderSpace;
     }
 
     //formats the entire card pile by getting component and calling format
-    public void Format()
+    private void Format()
     {
         GameObject[] cards = cpm.GetCardList().ToArray(); //gets the card list from manager
         if (cards.Length >= 1)
@@ -47,5 +50,10 @@ public class CardPileDisplay : MonoBehaviour
                 grid.spacing = new Vector2((cardRect.transform.localScale.x * 100) - 100, grid.spacing.y); //The spacing for cards that aren't overlapping
             }
         }
+    }
+
+    private void Update()
+    {
+        Format();
     }
 }
