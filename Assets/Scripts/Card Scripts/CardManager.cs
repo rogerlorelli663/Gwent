@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CardManager : MonoBehaviour
 {
@@ -37,16 +40,17 @@ public class CardManager : MonoBehaviour
 
     public void setName(string cardName)
     {
-        this.cardName = cardName;
+        this.cardName = gameObject.transform.Find("Name").gameObject.GetComponent<Text>().text;
     }
 
     public int getPower()
     {
+        this.power = Int32.Parse(gameObject.transform.Find("Power").gameObject.GetComponent<Text>().text);
         return this.power;
     }
 
     public void setPower(int power)
     {
-        this.power = power;
+        this.power = Int32.Parse(gameObject.transform.Find("Power").gameObject.GetComponent<Text>().text); 
     }
 }

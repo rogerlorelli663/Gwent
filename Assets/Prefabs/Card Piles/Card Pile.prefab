@@ -126,11 +126,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3898577664082970672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d272e570c54589e428e4ec9572f0e22f, type: 3}
+  m_Script: {fileID: 11500000, guid: d5b810d94fc0fbb4fbda2094607b81d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  cards: []
 --- !u!114 &3898577664082970685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3898577664082970672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad9013ba56bc60499f0c8716fe7cc1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 452bc7177666f6143875ec4169219962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   borderSpace: 0
@@ -153,6 +151,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3898577664082970672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef779fecc10a704784357b6ba35635e, type: 3}
+  m_Script: {fileID: 11500000, guid: 22463940131d3824cabc3ebb3449d50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  cards: []
