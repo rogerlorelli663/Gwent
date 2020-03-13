@@ -30,6 +30,7 @@ public class CardPileManager : MonoBehaviour
     //add a card to car pile
     public void AddCardToPile(GameObject card)
     {
+        Debug.Log("Setting new parent");
         cards.Add(card);
         card.transform.SetParent(gameObject.transform);
     }
@@ -39,13 +40,6 @@ public class CardPileManager : MonoBehaviour
     {
         cards.Remove(card);
         card.transform.SetParent(null);
-    }
-
-    //Transfer a card within this card pile into another
-    public void TransferCardToCardPile(GameObject card, GameObject cardPile)
-    {
-        RemoveCardFromPile(card);
-        cardPile.GetComponent<CardPileManager>().AddCardToPile(card);
     }
 
     //Returns index of the first instance of this card in card pile;
