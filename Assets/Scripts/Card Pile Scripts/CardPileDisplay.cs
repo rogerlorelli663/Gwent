@@ -47,7 +47,7 @@ public class CardPileDisplay : MonoBehaviour
             }
             else
             {
-                grid.spacing = new Vector2((cardRect.transform.localScale.x * 100) - 100, grid.spacing.y); //The spacing for cards that aren't overlapping
+                grid.spacing = new Vector2((cardRect.transform.localScale.x * grid.cellSize.x) - grid.cellSize.x, grid.spacing.y); //The spacing for cards that aren't overlapping
             }
         }
     }
