@@ -16,8 +16,9 @@ public class CardPileViewManager : MonoBehaviour
         
     }
 
-   public void testFromCardPileListener()
+   public void GetCardList(List<GameObject> cards)
     {
-        Debug.Log("I got to the Card Pile View Manager script");
+
+        Debug.Log(cards);
     }
 }

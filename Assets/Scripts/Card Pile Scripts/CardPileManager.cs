@@ -23,7 +23,7 @@ public enum CardPileType
 
 public class CardPileManager : MonoBehaviour
 {
-
+    private CardPileViewManager cpvm;
     [SerializeField] private CardPileType type = CardPileType.NO_CARD_PILE_TYPE;
     [SerializeField] private List<GameObject> cards = null;
 
@@ -69,6 +69,14 @@ public class CardPileManager : MonoBehaviour
     //Returns the card pile enum type
     public CardPileType GetCardPileType()
     {
-        return type;
+        return type; 
+    }
+
+    public void SendCardListToView()
+    {
+        cpvm = GetComponent<CardPileViewManager>();
+        cpvm.GetCardList(GetCardList());
+       // Debug.Log("\nHERE I AM, A TEST, WORKING YAY");
+
     }
 }

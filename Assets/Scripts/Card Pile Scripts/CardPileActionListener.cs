@@ -7,14 +7,14 @@ using UnityEngine.EventSystems;
 public class CardPileActionListener : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
-    private CardPileViewManager pileView;
+    private CardPileManager cpm;
 
     private Image highlight;
     private bool isSelectableCardPile = false;
     // Start is called before the first frame update
     void Start()
     {
-        pileView = GetComponent<CardPileViewManager>();
+        cpm = GetComponent<CardPileManager>();//DANIEL CODE
 
         highlight = GetComponent<Image>();
         highlight.color = new Color(highlight.color.r, highlight.color.g, highlight.color.b, 0f);
@@ -25,7 +25,7 @@ public class CardPileActionListener : MonoBehaviour, IPointerEnterHandler, IPoin
     {
         if (Input.GetMouseButtonDown(1) && isSelectableCardPile)
         {
-            pileView.testFromCardPileListener();
+            cpm.SendCardListToView();
 
             Debug.Log("Action Triggered!\nOpening card pile set up\nCreating card pile set up object");
         }
