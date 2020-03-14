@@ -40,13 +40,13 @@ public class CounterManager : MonoBehaviour
         {
             foreach (CardPileManager cpm in cardpiles)
             {
-                if (cpm.GetCardPileType() == global::CardPileType.CLOSE_COMBAT_FIELD_PILE ||
-                    cpm.GetCardPileType() == global::CardPileType.RANGE_COMBAT_FIELD_PILE ||
-                    cpm.GetCardPileType() == global::CardPileType.SIEGE_COMBAT_FIELD_PILE)
-                {
-                    playerPiles[i] = cpm;
-                    i++;
-                }
+                    if (cpm.GetCardPileType() == global::CardPileType.CLOSE_COMBAT_FIELD_PILE ||
+                        cpm.GetCardPileType() == global::CardPileType.RANGE_COMBAT_FIELD_PILE ||
+                        cpm.GetCardPileType() == global::CardPileType.SIEGE_COMBAT_FIELD_PILE)
+                    {
+                        playerPiles[i] = cpm;
+                        i++;
+                    }
             }
         }
     }
@@ -63,17 +63,24 @@ public class CounterManager : MonoBehaviour
         string totalPower;
         foreach(CardPileManager cpm in playerPiles)
         {
-            GameObject[] cardList = cpm.GetCardList().ToArray();
-            foreach(GameObject card in cardList)
+            if(cpm != null)
             {
-                if(card.GetComponent<CardManager>() == null)
+                GameObject[] cardList = cpm.GetCardList().ToArray();
+                foreach (GameObject card in cardList)
                 {
-                    Debug.Log("Component is NULL\n");
+                    if (card.GetComponent<CardManager>() == null)
+                    {
+                        Debug.Log("Component is NULL\n");
+                    }
+                    else
+                    {
+                        sum += card.GetComponent<CardManager>().getPower();
+                    }
                 }
-                else
-                {
-                    sum += card.GetComponent<CardManager>().getPower();
-                }
+            }
+            else
+            {
+                Debug.Log("Missing Card Pile\n");
             }
         }
         totalPower = "" + sum;

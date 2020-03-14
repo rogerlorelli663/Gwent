@@ -18,7 +18,7 @@ public class CardManager : MonoBehaviour
         LEADER = 6,
     }
 
-    [SerializeField] private CardType type = CardType.NO_TYPE;
+    //[SerializeField] private CardType type = CardType.NO_TYPE;
     private int cardType;
     private string cardName;
     private int power;
@@ -65,6 +65,7 @@ public class CardManager : MonoBehaviour
 
     public void Update()
     {
+        if(gameObject.transform.parent.CompareTag("Siege") || gameObject.transform.parent.CompareTag("Melee") || gameObject.transform.parent.CompareTag("Range") || gameObject.transform.parent.CompareTag("Hand"))
         if (getCardPileLocation() != CardPileType.HAND_PILE)
         {
             GetComponent<CanvasGroup>().blocksRaycasts = false;
