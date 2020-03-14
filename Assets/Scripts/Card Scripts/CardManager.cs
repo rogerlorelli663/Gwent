@@ -22,7 +22,16 @@ public class CardManager : MonoBehaviour
     private int cardType;
     private string cardName;
     private int power;
-
+    private CardPileType cardPileLocation;
+    public CardPileType getCardPileLocation()
+    {
+        setCardPileLocation();
+        return this.cardPileLocation;
+    }
+    public void setCardPileLocation()
+    {
+        this.cardPileLocation = gameObject.transform.parent.transform.GetComponent<CardPileManager>().GetCardPileType();
+    }
     public int getCardType()
     {
         return cardType;
@@ -52,5 +61,13 @@ public class CardManager : MonoBehaviour
     public void setPower(int power)
     {
         this.power = Int32.Parse(gameObject.transform.Find("Power").gameObject.GetComponent<Text>().text); 
+    }
+
+    public void Update()
+    {
+        if (getCardPileLocation() != CardPileType.HAND_PILE)
+        {
+            GetComponent<CanvasGroup>().blocksRaycasts = false;
+        }
     }
 }
