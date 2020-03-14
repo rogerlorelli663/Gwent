@@ -23,13 +23,21 @@ public enum CardPileType
 
 public class CardPileManager : MonoBehaviour
 {
-    private CardPileViewManager cpvm;
+    public CardPileViewManager cpvm;
+
     [SerializeField] private CardPileType type = CardPileType.NO_CARD_PILE_TYPE;
     [SerializeField] private List<GameObject> cards = null;
+    public List<GameObject> cardsToSend = null;
+
+    void Start()
+    {
+        cpvm = GetComponent<CardPileViewManager>();
+    }
 
     //add a card to car pile
     public void AddCardToPile(GameObject card)
     {
+        Debug.Log("Setting new parent");
         cards.Add(card);
         card.transform.SetParent(gameObject.transform);
     }
@@ -39,13 +47,6 @@ public class CardPileManager : MonoBehaviour
     {
         cards.Remove(card);
         card.transform.SetParent(null);
-    }
-
-    //Transfer a card within this card pile into another
-    public void TransferCardToCardPile(GameObject card, GameObject cardPile)
-    {
-        RemoveCardFromPile(card);
-        cardPile.GetComponent<CardPileManager>().AddCardToPile(card);
     }
 
     //Returns index of the first instance of this card in card pile;
@@ -69,14 +70,23 @@ public class CardPileManager : MonoBehaviour
     //Returns the card pile enum type
     public CardPileType GetCardPileType()
     {
-        return type; 
+        return type;
     }
 
-    public void SendCardListToView()
+    public void CardListToPileView()
     {
-        cpvm = GetComponent<CardPileViewManager>();
-        cpvm.GetCardList(GetCardList());
-       // Debug.Log("\nHERE I AM, A TEST, WORKING YAY");
+        List<GameObject> temp = null;
 
+        temp = GetCardList();
+
+        Debug.Log("\nThe Count is : " + temp.Count);
+
+        for (int x = 0; x < temp.Count;x++)
+        {
+            Debug.Log("\nThe index is : " + x);
+            cardsToSend.Add(Instantiate(temp[x]));
+        }
+
+        cpvm.GetCardListFromPile(cardsToSend);
     }
 }
