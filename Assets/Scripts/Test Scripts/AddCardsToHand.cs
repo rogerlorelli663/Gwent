@@ -13,10 +13,11 @@ public class AddCardsToHand : MonoBehaviour
     void Start()
     {
         CardPileManager[] cardPiles = FindObjectsOfType<CardPileManager>();
-        foreach(CardPileManager cpm in cardPiles){
+        foreach(CardPileManager cpm in cardPiles)
+        {
             switch (cpm.GetCardPileType())
             {
-                case CardPileType.HAND_PILE:
+                case CardPileManager.CardPileType.PLAYER1_HAND_PILE:
                     GameObject hand = cpm.gameObject;
                     card = hand.transform.GetChild(0).gameObject; //requires 1 card as a template
                     cardImage = card.GetComponent<Image>();
