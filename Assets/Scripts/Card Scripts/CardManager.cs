@@ -22,43 +22,43 @@ public class CardManager : MonoBehaviour
     private int cardType;
     private string cardName;
     private int power;
-    private CardPileType cardPileLocation;
-    public CardPileType getCardPileLocation()
+    private CardPileManager.CardPileType cardPileLocation;
+    public CardPileManager.CardPileType GetCardPileLocation()
     {
-        setCardPileLocation();
+        SetCardPileLocation();
         return this.cardPileLocation;
     }
-    public void setCardPileLocation()
+    public void SetCardPileLocation()
     {
         this.cardPileLocation = gameObject.transform.parent.transform.GetComponent<CardPileManager>().GetCardPileType();
     }
-    public int getCardType()
+    public int GetCardType()
     {
         return cardType;
     }
 
-    public string getName()
+    public string GetName()
     {
         return cardName;
     }
 
-    public void setCardType(int cardType)
+    public void SetCardType(int cardType)
     {
         this.cardType = cardType;
     }
 
-    public void setName(string cardName)
+    public void SetName(string cardName)
     {
         this.cardName = gameObject.transform.Find("Name").gameObject.GetComponent<Text>().text;
     }
 
-    public int getPower()
+    public int GetPower()
     {
         this.power = Int32.Parse(gameObject.transform.Find("Power").gameObject.GetComponent<Text>().text);
         return this.power;
     }
 
-    public void setPower(int power)
+    public void SetPower(int power)
     {
         this.power = Int32.Parse(gameObject.transform.Find("Power").gameObject.GetComponent<Text>().text); 
     }
@@ -66,7 +66,7 @@ public class CardManager : MonoBehaviour
     public void Update()
     {
         if(gameObject.transform.parent.CompareTag("Siege") || gameObject.transform.parent.CompareTag("Melee") || gameObject.transform.parent.CompareTag("Range") || gameObject.transform.parent.CompareTag("Hand"))
-        if (getCardPileLocation() != CardPileType.HAND_PILE)
+        if (GetCardPileLocation() != CardPileManager.CardPileType.PLAYER1_HAND_PILE)
         {
             GetComponent<CanvasGroup>().blocksRaycasts = false;
         }

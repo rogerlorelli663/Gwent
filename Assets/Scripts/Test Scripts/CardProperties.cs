@@ -13,14 +13,6 @@ public class CardProperties : MonoBehaviour, IPointerClickHandler
         GameObject mynewball = gameObject;
         RectTransform rt = (RectTransform)mynewball.transform;
 
-        //GameObject copy = Instantiate(gameObject);
-        CardExecutionManager cem = FindObjectOfType<CardExecutionManager>();
-        
-        if (!cem.HasCard())
-        {
-            cem.SetCardForPlay(gameObject);
-        }
-
 
         float width = rt.rect.width;
         float height = rt.rect.height;

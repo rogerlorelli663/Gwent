@@ -6,27 +6,28 @@ using UnityEngine.UI;
 public class CardExecutionGameState : MonoBehaviour
 {
 
-    private CardExecutionManager cem;
-    private bool changedState;
+    [SerializeField] private GameObject objects;
+    [SerializeField] private Component comp;
+    private CardViewManager cvm;
 
     void Start()
     {
-        cem = FindObjectOfType<CardExecutionManager>();
+        cvm = FindObjectOfType<CardViewManager>();
     }
 
     void Update()
     {
-        if (cem.HasCard())
+       /* if (cem.HasCard())
         {
             DisableListeners();
         }
         else
         {
             EnableListeners();
-        }
+        }*/
     }
 
-    private void DisableListeners()
+    /*private void DisableListeners()
     {
         CardPileManager[] cardPileManagers = FindObjectsOfType<CardPileManager>();
         foreach(CardPileManager cpm in cardPileManagers)
@@ -66,5 +67,5 @@ public class CardExecutionGameState : MonoBehaviour
         {
             cardp.GetComponent<CardProperties>().enabled = true;
         }
-    }
+    }*/
 }

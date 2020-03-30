@@ -10,8 +10,8 @@ public class CounterManager : MonoBehaviour
     private enum CounterType
     {
         NO_TYPE,
-        PLAYER_COUNTER,
-        OPPONENT_COUNTER
+        PLAYER1_COUNTER,
+        PLAYER2_COUNTER
     }
     [SerializeField] private CounterType type = CounterType.NO_TYPE; 
 
@@ -23,26 +23,26 @@ public class CounterManager : MonoBehaviour
     {
         int i = 0;
         cardpiles = FindObjectsOfType<CardPileManager>();
-        if(this.type == CounterType.OPPONENT_COUNTER)
+        if(this.type == CounterType.PLAYER2_COUNTER)
         {
             foreach (CardPileManager cpm in cardpiles)
             {
-                if (cpm.GetCardPileType() == global::CardPileType.OPPONENT_CLOSE_COMBAT_FIELD_PILE ||
-                    cpm.GetCardPileType() == global::CardPileType.OPPONENT_RANGE_COMBAT_FIELD_PILE ||
-                    cpm.GetCardPileType() == global::CardPileType.OPPONENT_SIEGE_COMBAT_FIELD_PILE)
+                if (cpm.GetCardPileType() == CardPileManager.CardPileType.PLAYER2_CLOSE_COMBAT_FIELD_PILE ||
+                    cpm.GetCardPileType() == CardPileManager.CardPileType.PLAYER2_RANGE_COMBAT_FIELD_PILE ||
+                    cpm.GetCardPileType() == CardPileManager.CardPileType.PLAYER2_SIEGE_COMBAT_FIELD_PILE)
                 {
                     playerPiles[i] = cpm;
                     i++;
                 }
             }
         }
-        else if(this.type == CounterType.PLAYER_COUNTER)
+        else if(this.type == CounterType.PLAYER1_COUNTER)
         {
             foreach (CardPileManager cpm in cardpiles)
             {
-                    if (cpm.GetCardPileType() == global::CardPileType.CLOSE_COMBAT_FIELD_PILE ||
-                        cpm.GetCardPileType() == global::CardPileType.RANGE_COMBAT_FIELD_PILE ||
-                        cpm.GetCardPileType() == global::CardPileType.SIEGE_COMBAT_FIELD_PILE)
+                    if (cpm.GetCardPileType() == CardPileManager.CardPileType.PLAYER1_CLOSE_COMBAT_FIELD_PILE ||
+                        cpm.GetCardPileType() == CardPileManager.CardPileType.PLAYER1_RANGE_COMBAT_FIELD_PILE ||
+                        cpm.GetCardPileType() == CardPileManager.CardPileType.PLAYER1_SIEGE_COMBAT_FIELD_PILE)
                     {
                         playerPiles[i] = cpm;
                         i++;
@@ -54,10 +54,10 @@ public class CounterManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.GetComponentInChildren<Text>().text = updateCounter();
+        this.GetComponentInChildren<Text>().text = UpdateCounter();
     }
 
-    string updateCounter()
+    string UpdateCounter()
     {
         int sum = 0;
         string totalPower;
@@ -74,7 +74,7 @@ public class CounterManager : MonoBehaviour
                     }
                     else
                     {
-                        sum += card.GetComponent<CardManager>().getPower();
+                        sum += card.GetComponent<CardManager>().GetPower();
                     }
                 }
             }
