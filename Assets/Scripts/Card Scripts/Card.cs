@@ -22,21 +22,21 @@ public class Card : MonoBehaviour
     private int cardType;
     private string cardName;
     private int power;
-    private CardPileManager.CardPileType cardPileLocation;
+    private CardPile.CardPileType cardPileLocation;
 
     private GwentCard card;
     private void Start()
     {
         
     }
-    public CardPileManager.CardPileType GetCardPileLocation()
+    public CardPile.CardPileType GetCardPileLocation()
     {
         SetCardPileLocation();
         return this.cardPileLocation;
     }
     public void SetCardPileLocation()
     {
-        this.cardPileLocation = gameObject.transform.parent.transform.GetComponent<CardPileManager>().GetCardPileType();
+        this.cardPileLocation = gameObject.transform.parent.transform.GetComponent<CardPile>().GetCardPileType();
     }
     public int GetCardType()
     {
@@ -72,7 +72,7 @@ public class Card : MonoBehaviour
     public void Update()
     {
         if(gameObject.transform.parent.CompareTag("Siege") || gameObject.transform.parent.CompareTag("Melee") || gameObject.transform.parent.CompareTag("Range") || gameObject.transform.parent.CompareTag("Hand"))
-        if (GetCardPileLocation() != CardPileManager.CardPileType.PLAYER1_HAND_PILE)
+        if (GetCardPileLocation() != CardPile.CardPileType.PLAYER1_HAND_PILE)
         {
             GetComponent<CanvasGroup>().blocksRaycasts = false;
         }

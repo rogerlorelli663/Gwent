@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardDescriptionManager : MonoBehaviour
+public class CardDescription : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,7 +14,7 @@ public class CardDescriptionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CardViewManager cvm = FindObjectOfType<CardViewManager>();
+        SelectedCard cvm = FindObjectOfType<SelectedCard>();
         if (cvm.HasCard())
         {
             SpecialCard card = cvm.GetDisplayCard().GetComponentInChildren<SpecialCard>();

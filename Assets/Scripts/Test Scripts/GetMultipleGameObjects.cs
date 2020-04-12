@@ -20,21 +20,21 @@ public class GetMultipleGameObjects : MonoBehaviour
                 {
                     if (hit.collider != null)
                     {
-                        CardPileManager cpm = hit.collider.gameObject.GetComponent<CardPileManager>();
+                        CardPile cpm = hit.collider.gameObject.GetComponent<CardPile>();
                         if (cpm != null)
                         {
 
                             switch (cpm.GetCardPileType())
                             {
-                                case CardPileManager.CardPileType.PLAYER1_CLOSE_COMBAT_FIELD_PILE:
+                                case CardPile.CardPileType.PLAYER1_CLOSE_COMBAT_FIELD_PILE:
                                     cpm.AddCardToPile(card);
                                     cardHolder.EraseCard();
                                     break;
-                                case CardPileManager.CardPileType.PLAYER1_RANGE_COMBAT_FIELD_PILE:
+                                case CardPile.CardPileType.PLAYER1_RANGE_COMBAT_FIELD_PILE:
                                     cpm.AddCardToPile(card);
                                     cardHolder.EraseCard();
                                     break;
-                                case CardPileManager.CardPileType.PLAYER1_SIEGE_COMBAT_FIELD_PILE:
+                                case CardPile.CardPileType.PLAYER1_SIEGE_COMBAT_FIELD_PILE:
                                     cpm.AddCardToPile(card);
                                     cardHolder.EraseCard();
                                     break;

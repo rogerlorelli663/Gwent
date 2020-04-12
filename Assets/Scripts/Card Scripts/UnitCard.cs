@@ -8,10 +8,6 @@ public class UnitCard : GwentCard
 
     [SerializeField] string cardFlavorText;
     [SerializeField] int cardPower;
-    [SerializeField] Sprite cardFlavorTextArt;
-    [SerializeField] Sprite cardPowerToken;
-
-
 
     public virtual string GetCardFlavorText()
     {
@@ -21,14 +17,5 @@ public class UnitCard : GwentCard
     public virtual int GetCardPower()
     {
         return this.cardPower;
-    }
-
-    public virtual Sprite GetCardFlavorTextArt()
-    {
-        return this.cardFlavorTextArt;
-    }
-    public virtual Sprite GetCardPowerToken()
-    {
-        return this.cardPowerToken;
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnCardPileSelect : MonoBehaviour
+public class CardPileSelector : MonoBehaviour
 {
     void Update()
     {
@@ -15,7 +15,7 @@ public class OnCardPileSelect : MonoBehaviour
             {
                 if (hit.collider != null)
                 {
-                    CardPileManager cpm = hit.collider.gameObject.GetComponent<CardPileManager>();
+                    CardPile cpm = hit.collider.gameObject.GetComponent<CardPile>();
                     if (cpm != null)
                     {
                         //open card pile view

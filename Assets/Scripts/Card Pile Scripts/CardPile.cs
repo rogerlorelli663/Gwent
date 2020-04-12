@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardPileManager : MonoBehaviour
+public class CardPile : MonoBehaviour
 {
 
     [SerializeField] private CardPileType type = CardPileType.NO_CARD_PILE_TYPE;

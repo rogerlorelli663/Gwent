@@ -21,7 +21,6 @@ public class SpecialCard : UnitCard
     }
 
     [SerializeField] private AbilityType abilityType;
-    [SerializeField] private Sprite abilityArt;
     [SerializeField] public string cardDescription;
     public string getCardDescription()
     {
