@@ -68,13 +68,13 @@ public class CounterManager : MonoBehaviour
                 GameObject[] cardList = cpm.GetCardList().ToArray();
                 foreach (GameObject card in cardList)
                 {
-                    if (card.GetComponent<CardManager>() == null)
+                    if (card.GetComponent<Card>() == null)
                     {
                         Debug.Log("Component is NULL\n");
                     }
                     else
                     {
-                        sum += card.GetComponent<CardManager>().GetPower();
+                        sum += card.GetComponent<Card>().GetPower();
                     }
                 }
             }

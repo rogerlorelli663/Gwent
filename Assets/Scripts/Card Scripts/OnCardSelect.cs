@@ -5,10 +5,10 @@ using UnityEngine.EventSystems;
 
 public class OnCardSelect : MonoBehaviour, IPointerClickHandler
 {
-    CardManager card;
+    Card card;
     void Start()
     {
-        card = GetComponent<CardManager>();
+        card = GetComponent<Card>();
     }
 
     public void OnPointerClick(PointerEventData eventData)

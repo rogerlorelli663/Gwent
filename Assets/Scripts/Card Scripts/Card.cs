@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CardManager : MonoBehaviour
+public class Card : MonoBehaviour
 {
-   /* private enum CardType
+    private enum CardType
     {
         NO_TYPE = 0,
         MELEE = 1,
@@ -23,6 +23,12 @@ public class CardManager : MonoBehaviour
     private string cardName;
     private int power;
     private CardPileManager.CardPileType cardPileLocation;
+
+    private GwentCard card;
+    private void Start()
+    {
+        
+    }
     public CardPileManager.CardPileType GetCardPileLocation()
     {
         SetCardPileLocation();
@@ -65,10 +71,10 @@ public class CardManager : MonoBehaviour
 
     public void Update()
     {
-        //if(gameObject.transform.parent.CompareTag("Siege") || gameObject.transform.parent.CompareTag("Melee") || gameObject.transform.parent.CompareTag("Range") || gameObject.transform.parent.CompareTag("Hand"))
+        if(gameObject.transform.parent.CompareTag("Siege") || gameObject.transform.parent.CompareTag("Melee") || gameObject.transform.parent.CompareTag("Range") || gameObject.transform.parent.CompareTag("Hand"))
         if (GetCardPileLocation() != CardPileManager.CardPileType.PLAYER1_HAND_PILE)
         {
             GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
-    }*/
+    }
 }
