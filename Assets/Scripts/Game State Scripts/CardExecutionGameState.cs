@@ -8,11 +8,11 @@ public class CardExecutionGameState : MonoBehaviour
 
     [SerializeField] private GameObject objects;
     [SerializeField] private Component comp;
-    private CardViewManager cvm;
+    private SelectedCard cvm;
 
     void Start()
     {
-        cvm = FindObjectOfType<CardViewManager>();
+        cvm = FindObjectOfType<SelectedCard>();
     }
 
     void Update()

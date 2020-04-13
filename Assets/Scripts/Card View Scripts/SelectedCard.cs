@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardViewManager : MonoBehaviour
+public class SelectedCard : MonoBehaviour
 {
     private GameObject displayCard;
     private CardHolder cardHolder;

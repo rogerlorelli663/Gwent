@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardViewDisplay : MonoBehaviour
+public class SelectedCardDisplay : MonoBehaviour
 {
 
-    private CardViewManager cvm;
+    private SelectedCard cvm;
     [SerializeField] private float scale = 1;
 
     void Start()
     {
-        cvm = GetComponent<CardViewManager>();
+        cvm = GetComponent<SelectedCard>();
     }
 
     void Update()

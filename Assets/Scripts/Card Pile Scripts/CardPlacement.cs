@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnCardPlace : MonoBehaviour
+public class CardPlacement : MonoBehaviour
 {
 
     void Update()
@@ -23,22 +23,22 @@ public class OnCardPlace : MonoBehaviour
                     {
                         if (hit.collider != null)
                         {
-                            CardPileManager cpm = hit.collider.gameObject.GetComponent<CardPileManager>();
+                            CardPile cpm = hit.collider.gameObject.GetComponent<CardPile>();
                             if (cpm != null)
                             {
                                 switch (cpm.GetCardPileType())
                                 {
-                                    case CardPileManager.CardPileType.PLAYER1_CLOSE_COMBAT_FIELD_PILE:
+                                    case CardPile.CardPileType.PLAYER1_CLOSE_COMBAT_FIELD_PILE:
                                         cpm.AddCardToPile(card);
                                         MakeCardVisible(card);
                                         cardHolder.EraseCard();
                                         break;
-                                    case CardPileManager.CardPileType.PLAYER1_RANGE_COMBAT_FIELD_PILE:
+                                    case CardPile.CardPileType.PLAYER1_RANGE_COMBAT_FIELD_PILE:
                                         cpm.AddCardToPile(card);
                                         MakeCardVisible(card);
                                         cardHolder.EraseCard();
                                         break;
-                                    case CardPileManager.CardPileType.PLAYER1_SIEGE_COMBAT_FIELD_PILE:
+                                    case CardPile.CardPileType.PLAYER1_SIEGE_COMBAT_FIELD_PILE:
                                         cpm.AddCardToPile(card);
                                         MakeCardVisible(card);
                                         cardHolder.EraseCard();
@@ -65,10 +65,10 @@ public class OnCardPlace : MonoBehaviour
                 {
                     GameObject card = cardHolder.GetCard();
 
-                    CardPileManager[] cpmList = FindObjectsOfType<CardPileManager>();
-                    foreach(CardPileManager cpm in cpmList)
+                    CardPile[] cpmList = FindObjectsOfType<CardPile>();
+                    foreach(CardPile cpm in cpmList)
                     {
-                        if(cpm.GetCardPileType() == CardPileManager.CardPileType.PLAYER1_HAND_PILE)
+                        if(cpm.GetCardPileType() == CardPile.CardPileType.PLAYER1_HAND_PILE)
                         {
                             MakeCardVisible(card);
                             cardHolder.EraseCard();

@@ -10,7 +10,7 @@ public class CardPileDisplay : MonoBehaviour
     [SerializeField] float borderSpace = 0;
 
     //Component fields required for Card Display
-    private CardPileManager cpm;
+    private CardPile cpm;
     private GridLayoutGroup grid;
     private RectTransform panel;
 
@@ -20,7 +20,7 @@ public class CardPileDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cpm = GetComponent<CardPileManager>();
+        cpm = GetComponent<CardPile>();
         grid = GetComponent<GridLayoutGroup>();
         panel = GetComponent<RectTransform>();
 

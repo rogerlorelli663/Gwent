@@ -22,7 +22,7 @@ public class CardPileActionListener : MonoBehaviour
             RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos2D, Vector2.zero);
             foreach (RaycastHit2D hit in hits)
             {
-                CardPileManager cpm = hit.collider.gameObject.GetComponent<CardPileManager>();
+                CardPile cpm = hit.collider.gameObject.GetComponent<CardPile>();
                 if (cpm != null && hit.collider != null)
                 {
                     Debug.Log("Action Triggered!\nOpening card pile set up\nCreating card pile set up object");
