@@ -12,8 +12,13 @@ GameObject:
   - component: {fileID: 8413997972714823735}
   - component: {fileID: 6485517344085308531}
   - component: {fileID: 825663312134393402}
+<<<<<<< HEAD
   - component: {fileID: 6605024909171006935}
   - component: {fileID: 4156326152876587551}
+=======
+  - component: {fileID: 6826557305727772714}
+  - component: {fileID: 6605024909171006935}
+>>>>>>> c3171847646cc344ee7d7076501492ac54be4289
   m_Layer: 5
   m_Name: WeatherCard
   m_TagString: Untagged
@@ -62,7 +67,11 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
+<<<<<<< HEAD
   m_BlocksRaycasts: 0
+=======
+  m_BlocksRaycasts: 1
+>>>>>>> c3171847646cc344ee7d7076501492ac54be4289
   m_IgnoreParentGroups: 0
 --- !u!114 &825663312134393402
 MonoBehaviour:
@@ -76,6 +85,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67428c436511b214ea531f8bfb2160a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+--- !u!114 &6826557305727772714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554505370700125769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d2c876c5d766944bec6b0033f26bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> c3171847646cc344ee7d7076501492ac54be4289
 --- !u!114 &6605024909171006935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb3f7b3dc1623e4e915cb28e50f50cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   cardName: Biting Frost
   cardType: 4
   cardFlavorText: Best part about frost - bodies of the fallen don't rot so quickly.
@@ -120,6 +145,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 350}
   m_EdgeRadius: 0
+=======
+  cardSymbol: {fileID: 21300000, guid: 5d4acb689ef038c40a04c8031c051f0a, type: 3}
+  cardBackside: {fileID: 21300000, guid: 731cb081e041616419e6c8b9c9e77e4b, type: 3}
+  cardArt: {fileID: 21300000, guid: e02c7992484ccd24f869d9c448f5a49a, type: 3}
+  cardBackground: {r: 0, g: 0, b: 0, a: 0}
+  cardName: Biting Frost
+  cardType: 4
+  hasDescription: 1
+  cardFlavorText: Best part about frost - bodies of the fallen don't rot so quickly.
+  cardPower: 0
+  cardFlavorTextArt: {fileID: 0}
+  cardPowerToken: {fileID: 0}
+  abilityType: 8
+  abilityArt: {fileID: 21300000, guid: 5d4acb689ef038c40a04c8031c051f0a, type: 3}
+  cardDescription: Sets the strength of all Close Combat cards to 1 for both players.
+>>>>>>> c3171847646cc344ee7d7076501492ac54be4289
 --- !u!1 &2353083087937762364
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +333,11 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5248890362934548681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: 0, z: 0}
+=======
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+>>>>>>> c3171847646cc344ee7d7076501492ac54be4289
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5672995852588536239}
@@ -329,7 +374,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 27f7562110145a7408440ff977060d0f, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: 5d4acb689ef038c40a04c8031c051f0a, type: 3}
+>>>>>>> c3171847646cc344ee7d7076501492ac54be4289
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -402,7 +451,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: a4f950fd8106273439e0f3c9c3ba4e06, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: e02c7992484ccd24f869d9c448f5a49a, type: 3}
+>>>>>>> c3171847646cc344ee7d7076501492ac54be4289
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

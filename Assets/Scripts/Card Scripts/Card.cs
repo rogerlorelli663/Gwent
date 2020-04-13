@@ -24,7 +24,10 @@ public class Card : MonoBehaviour
     private CardPile.CardPileType cardPileLocation;
 
     private GwentCard card;
+<<<<<<< HEAD:Assets/Scripts/Card Scripts/Card.cs
 
+=======
+>>>>>>> c3171847646cc344ee7d7076501492ac54be4289:Assets/Scripts/Card Scripts/CardManager.cs
     private void Start()
     {
         
@@ -71,10 +74,18 @@ public class Card : MonoBehaviour
 
     public void Update()
     {
+<<<<<<< HEAD:Assets/Scripts/Card Scripts/Card.cs
         if (gameObject.transform.parent.CompareTag("Siege") || gameObject.transform.parent.CompareTag("Melee") || gameObject.transform.parent.CompareTag("Range") || gameObject.transform.parent.CompareTag("Hand"))
             if (GetCardPileLocation() != CardPile.CardPileType.HAND_PILE)
             {
                 GetComponent<CanvasGroup>().blocksRaycasts = false;
             }
+=======
+        if(gameObject.transform.parent.CompareTag("Siege") || gameObject.transform.parent.CompareTag("Melee") || gameObject.transform.parent.CompareTag("Range") || gameObject.transform.parent.CompareTag("Hand"))
+        if (GetCardPileLocation() != CardPile.CardPileType.PLAYER1_HAND_PILE)
+        {
+            GetComponent<CanvasGroup>().blocksRaycasts = false;
+        }
+>>>>>>> c3171847646cc344ee7d7076501492ac54be4289:Assets/Scripts/Card Scripts/CardManager.cs
     }
 }
