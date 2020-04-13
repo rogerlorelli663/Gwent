@@ -1,31 +1,57 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class CardPileHighlight : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-
-    private Image highlight;
-    private float defaultAlpha;
-
+    private Image highlightImage;
+    private float defaultHighlightImageAlpha; //constant alpha highlight not on mouse over
+    private bool mouseIsHoveringOverCardPile;
+    
     void Start()
     {
-        highlight = GetComponent<Image>();
-        defaultAlpha = highlight.color.a;
-        highlight.color = new Color(highlight.color.r, highlight.color.g, highlight.color.b, 0f);
+        highlightImage = GetComponent<Image>();
+        defaultHighlightImageAlpha = 0f;
+        mouseIsHoveringOverCardPile = false;
+        highlightImage.color = new Color(highlightImage.color.r, highlightImage.color.g, highlightImage.color.b, defaultHighlightImageAlpha);
     }
 
-    //Enables the highlighted image for this card pile
     public void OnPointerEnter(PointerEventData eventData)
     {
-        highlight.color = new Color(highlight.color.r, highlight.color.g, highlight.color.b, defaultAlpha);
+        mouseIsHoveringOverCardPile = true;
     }
 
-    //Disables the highlighted image for this card pile
     public void OnPointerExit(PointerEventData eventData)
     {
-        highlight.color = new Color(highlight.color.r, highlight.color.g, highlight.color.b, 0f);
+        mouseIsHoveringOverCardPile = false;
+    }
+
+    public void SetDefaultHighlightImageAlpha(float alpha)
+    {
+        defaultHighlightImageAlpha = alpha;
+    }
+
+    public void ResetDefaultHighlightImageAlpha()
+    {
+        defaultHighlightImageAlpha = 0f;
+    }
+
+    void Update()
+    {
+        ChangeHighlightImageAlpha();
+    }
+
+    private void ChangeHighlightImageAlpha()
+    {
+        if (mouseIsHoveringOverCardPile)
+        {
+            highlightImage.color = new Color(highlightImage.color.r, highlightImage.color.g, highlightImage.color.b, 255f);
+        }
+        else
+        {
+            highlightImage.color = new Color(highlightImage.color.r, highlightImage.color.g, highlightImage.color.b, defaultHighlightImageAlpha);
+        }
     }
 }

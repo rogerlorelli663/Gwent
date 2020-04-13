@@ -1,59 +1,70 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CardPileDisplay : MonoBehaviour
 {
-    //Spacing of the outer vertical edges
-    [SerializeField] float borderSpace = 0;
 
-    //Component fields required for Card Display
-    private CardPileManager cpm;
-    private GridLayoutGroup grid;
-    private RectTransform panel;
+    private CardPile cardPile;
+    private GridLayoutGroup gridLayout;
+    private RectTransform rectTransform;
 
-    //Width (x dimension) of the panel for the card pile
-    private static float cardPileWidth;
+    private float cardPileWidth;
 
-    // Start is called before the first frame update
     void Start()
     {
-        cpm = GetComponent<CardPileManager>();
-        grid = GetComponent<GridLayoutGroup>();
-        panel = GetComponent<RectTransform>();
+        cardPile = GetComponent<CardPile>();
+        gridLayout = GetComponent<GridLayoutGroup>();
+        rectTransform = GetComponent<RectTransform>();
 
-        cardPileWidth = panel.rect.width - borderSpace;
+        cardPileWidth = rectTransform.rect.width;
     }
 
-    //formats the entire card pile by getting component and calling format
-    private void Format()
+    
+    void Update()
     {
-        GameObject[] cards = cpm.GetCardList().ToArray(); //gets the card list from manager
-        if (cards.Length >= 1)
+        DetermineFormatOfGridLayout();
+    }
+
+    private void DetermineFormatOfGridLayout()
+    {
+        if (transform.childCount > 0)
         {
-            RectTransform cardRect = cards[0].GetComponent<RectTransform>(); //gets the rect transform of the first instance of a card
-            float cardWidth = cardRect.rect.width; //width of 1 card from the pile
-            float totalCardListWidth = cardWidth * cards.Length; //non-scaled width of the total cards summed up
-            if (cardPileWidth < totalCardListWidth * cardRect.transform.localScale.x) //Changes the spacing of cards so that they overlap for any input of scale
+            RectTransform cardRect = transform.GetChild(0).GetComponent<RectTransform>(); //instance of first card
+            float sumOfCardWidths = cardRect.rect.width * cardRect.transform.localScale.x * transform.childCount;
+            if (rectTransform.rect.width < sumOfCardWidths)
             {
-                float remainingCardsToFit = (totalCardListWidth - cardPileWidth) / cardWidth; //The amount of cards that cannot fit w/ overlapping
-                float cardsThatCanFit = (cardPileWidth / cardWidth); //The amount of cards that can fit within the panel boundry
-                float scaledSpacing = ((1 - cardRect.transform.localScale.x) * cardWidth) / remainingCardsToFit; //Contains the number of spacing that is placed back that is relevant to the scale
-                float spacing = (cardPileWidth - cardWidth - scaledSpacing) / (cards.Length - 1); //Contains the total spacing between the pivots of each card
-                Vector2 newSpace = new Vector2((-(spacing  * remainingCardsToFit / (cardsThatCanFit - 1))), grid.spacing.y); //Sets the new spacing by multiplying the pivot spacing and ratio of card fitness within the panel.
-                grid.spacing = newSpace;
+                DisplayCompactedCardPile(cardRect); //spacing = cardWidth * (cardScale - 1)
             }
             else
             {
-                grid.spacing = new Vector2((cardRect.transform.localScale.x * grid.cellSize.x) - grid.cellSize.x, grid.spacing.y); //The spacing for cards that aren't overlapping
+                DisplayUncompactedCardPile(cardRect);
             }
         }
     }
 
-    private void Update()
+    private void DisplayCompactedCardPile(RectTransform cardRect)
     {
-        Format();
+
+        float visibleCardWidth = cardRect.rect.width * cardRect.transform.localScale.x;
+        int remainingCardsToFitOntoPile = transform.childCount - (int)(cardPileWidth / visibleCardWidth);
+        int cardsThatFitOntoPile = transform.childCount - remainingCardsToFitOntoPile;
+        float compactedSpacingForCardPile = -(cardRect.rect.width - (cardRect.rect.width * cardRect.transform.localScale.x));
+
+        for (int remainingCardIndex = 1; remainingCardIndex <= remainingCardsToFitOntoPile; remainingCardIndex++)
+        {
+            compactedSpacingForCardPile -= visibleCardWidth / cardsThatFitOntoPile;
+            visibleCardWidth -= visibleCardWidth / cardsThatFitOntoPile;
+            cardsThatFitOntoPile++;
+        }
+
+        gridLayout.spacing = new Vector2(compactedSpacingForCardPile, 0);
     }
+
+    private void DisplayUncompactedCardPile(RectTransform cardRect)
+    {
+        gridLayout.spacing = new Vector2(-(cardRect.rect.width - (cardRect.rect.width * cardRect.transform.localScale.x)), 0);
+    }
+
 }
