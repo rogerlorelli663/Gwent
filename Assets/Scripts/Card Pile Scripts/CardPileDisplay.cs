@@ -6,30 +6,17 @@ using UnityEngine.UI;
 public class CardPileDisplay : MonoBehaviour
 {
 
-<<<<<<< HEAD
     private CardPile cardPile;
     private GridLayoutGroup gridLayout;
     private RectTransform rectTransform;
-=======
-    //Component fields required for Card Display
-    private CardPile cpm;
-    private GridLayoutGroup grid;
-    private RectTransform panel;
->>>>>>> c3171847646cc344ee7d7076501492ac54be4289
 
     private float cardPileWidth;
 
     void Start()
     {
-<<<<<<< HEAD
         cardPile = GetComponent<CardPile>();
         gridLayout = GetComponent<GridLayoutGroup>();
         rectTransform = GetComponent<RectTransform>();
-=======
-        cpm = GetComponent<CardPile>();
-        grid = GetComponent<GridLayoutGroup>();
-        panel = GetComponent<RectTransform>();
->>>>>>> c3171847646cc344ee7d7076501492ac54be4289
 
         cardPileWidth = rectTransform.rect.width;
     }

@@ -384,15 +384,9 @@ GameObject:
   - component: {fileID: 2235666093661954329}
   - component: {fileID: 2700100734343499905}
   - component: {fileID: 845839408857875653}
-<<<<<<< HEAD
   - component: {fileID: 1445837218193186519}
   - component: {fileID: 4257130325965005332}
   - component: {fileID: 2149092330096809185}
-=======
-  - component: {fileID: -2681487084157321588}
-  - component: {fileID: 1081115076868872348}
-  - component: {fileID: 4367364538233391835}
->>>>>>> c3171847646cc344ee7d7076501492ac54be4289
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -471,24 +465,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f766bee89e27594eb915231b657c40a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   cardName: 
   cardType: 0
   cardFlavorText: 
   cardPower: 0
 --- !u!61 &2149092330096809185
 BoxCollider2D:
-=======
---- !u!114 &4367364538233391835
-MonoBehaviour:
->>>>>>> c3171847646cc344ee7d7076501492ac54be4289
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4913039866311370495}
   m_Enabled: 1
-<<<<<<< HEAD
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -507,23 +495,6 @@ MonoBehaviour:
   serializedVersion: 2
   m_Size: {x: 200, y: 350}
   m_EdgeRadius: 0
-=======
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f766bee89e27594eb915231b657c40a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardSymbol: {fileID: 0}
-  cardBackside: {fileID: 0}
-  cardArt: {fileID: 0}
-  cardBackground: {r: 0, g: 0, b: 0, a: 0}
-  cardName: 
-  cardType: 0
-  hasDescription: 0
-  cardFlavorText: 
-  cardPower: 0
-  cardFlavorTextArt: {fileID: 0}
-  cardPowerToken: {fileID: 0}
->>>>>>> c3171847646cc344ee7d7076501492ac54be4289
 --- !u!1 &7385056257024484499
 GameObject:
   m_ObjectHideFlags: 0
