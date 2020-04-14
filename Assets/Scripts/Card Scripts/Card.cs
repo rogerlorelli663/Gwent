@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Card : MonoBehaviour
@@ -25,6 +24,7 @@ public class Card : MonoBehaviour
     private CardPile.CardPileType cardPileLocation;
 
     private GwentCard card;
+
     private void Start()
     {
         
@@ -71,10 +71,10 @@ public class Card : MonoBehaviour
 
     public void Update()
     {
-        if(gameObject.transform.parent.CompareTag("Siege") || gameObject.transform.parent.CompareTag("Melee") || gameObject.transform.parent.CompareTag("Range") || gameObject.transform.parent.CompareTag("Hand"))
-        if (GetCardPileLocation() != CardPile.CardPileType.PLAYER1_HAND_PILE)
-        {
-            GetComponent<CanvasGroup>().blocksRaycasts = false;
-        }
+        if (gameObject.transform.parent.CompareTag("Siege") || gameObject.transform.parent.CompareTag("Melee") || gameObject.transform.parent.CompareTag("Range") || gameObject.transform.parent.CompareTag("Hand"))
+            if (GetCardPileLocation() != CardPile.CardPileType.HAND_PILE)
+            {
+                GetComponent<CanvasGroup>().blocksRaycasts = false;
+            }
     }
 }
