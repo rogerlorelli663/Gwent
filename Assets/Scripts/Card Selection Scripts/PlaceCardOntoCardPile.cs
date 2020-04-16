@@ -6,7 +6,8 @@ public class PlaceCardOntoCardPile : MonoBehaviour
 {
 
     private CardSelector cardSelector;
-
+    private CardPile.CardPileType cardType;
+    private GameObject card;
     void Start()
     {
         cardSelector = GetComponent<CardSelector>();
@@ -18,10 +19,15 @@ public class PlaceCardOntoCardPile : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             GameObject cardPile = GetClickedCardPile();
-            if (cardPile != null && cardSelector.IsCardPlaceableAndInCardSelector())
+            if (cardPile != null && cardSelector.IsCardPlaceableAndInCardSelector() && !cardPile.tag.Contains("Enemy Melee") && !cardPile.tag.Contains("Enemy Range") && !cardPile.tag.Contains("Enemy Siege"))
             {
-                AddCardToCardPile(cardPile);
-                cardSelector.DeleteSelectedCardInstance();
+                card = cardSelector.GetOriginalCard();
+                cardType = card.GetComponent<Card>().GetCardType();
+                if (cardType == cardPile.GetComponent<CardPile>().GetCardPileType())
+                {
+                    AddCardToCardPile(cardPile);
+                    cardSelector.DeleteSelectedCardInstance();
+                }
             }
         }
     }
