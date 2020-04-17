@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class PlaceCardOntoCardPile : MonoBehaviour
 {
-
+    private PlayerBehavior PlayerBehavior;
     private CardSelector cardSelector;
     private CardPile.CardPileType cardType;
     private GameObject card;
@@ -25,8 +26,12 @@ public class PlaceCardOntoCardPile : MonoBehaviour
                 cardType = card.GetComponent<Card>().GetCardType();
                 if (cardType == cardPile.GetComponent<CardPile>().GetCardPileType())
                 {
+                    NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+                    PlayerBehavior = networkIdentity.GetComponent<PlayerBehavior>();
+                    PlayerBehavior.PlayCard(card);
                     AddCardToCardPile(cardPile);
                     cardSelector.DeleteSelectedCardInstance();
+                    
                 }
             }
         }
