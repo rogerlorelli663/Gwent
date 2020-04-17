@@ -28,7 +28,7 @@ public class CardScaleAnimator : MonoBehaviour
     {
         this.card = card;
         animationPartitionedProgress = animationSpeed / 1;
-        animationProgress = animationPartitionedProgress;
+        animationProgress = 0;
 
         incrementX = (animateToScale.x - this.card.transform.localScale.x) * animationPartitionedProgress;
         incrementY = (animateToScale.y - this.card.transform.localScale.y) * animationPartitionedProgress;
@@ -44,16 +44,17 @@ public class CardScaleAnimator : MonoBehaviour
 
     void Update()
     {
-        if (card != null && animationProgress <= 1)
+        if (card != null && animationProgress < 1)
         {
             animationProgress += animationPartitionedProgress;
             card.transform.localScale = new Vector2(card.transform.localScale.x + incrementX, card.transform.localScale.y + incrementY);
-        }
-        else if (card != null && isAnimating == true)
-        {
-            card.transform.localScale = animateToScale;
-            isAnimating = false;
-            animateToScale = defaultAnimateToScale;
+
+            if (animationProgress >= 1)
+            {
+                card.transform.localScale = animateToScale;
+                isAnimating = false;
+                animateToScale = defaultAnimateToScale;
+            }
         }
     }
 
