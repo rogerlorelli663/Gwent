@@ -4,10 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Hand
-  - Range
-  - Melee
-  - Siege
+  - Player Hand
+  - Player Melee
+  - Player Range
+  - Player Siege
+  - Enemy Hand
+  - Enemy Melee
+  - Enemy Range
+  - Enemy Siege
+  - Monitor
   layers:
   - Default
   - TransparentFX
