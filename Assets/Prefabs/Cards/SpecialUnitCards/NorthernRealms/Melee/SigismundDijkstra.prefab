@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Sigismund Dijkstra
   cardType: 4
-  hasCardDescripton: 0
+  hasCardDescripton: 1
   cardFlavorText: 'Gwent''s like politics, just more honest. '
   cardPower: 4
   abilityType: 1

@@ -623,7 +623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Cinfrid Reavers Dragon Hunter
   cardType: 5
-  hasCardDescripton: 0
+  hasCardDescripton: 1
   cardFlavorText: 'Haven''t had much luck with monsters of late, so we enlisted. '
   cardPower: 5
   abilityType: 5

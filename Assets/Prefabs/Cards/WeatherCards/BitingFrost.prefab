@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Biting Frost
   cardType: 4
+  hasCardDescripton: 1
   cardFlavorText: Best part about frost - bodies of the fallen don't rot so quickly.
   cardPower: 0
   abilityType: 8
