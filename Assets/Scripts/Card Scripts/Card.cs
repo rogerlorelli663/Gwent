@@ -9,6 +9,11 @@ public class Card : MonoBehaviour
     private string cardName;
     private int power;
 
+    void Start()
+    {
+        UnitCard unitCard = gameObject.GetComponent<UnitCard>();
+        this.power = unitCard.GetCardPower();
+    }
     public string GetName()
     {
         return cardName;
@@ -16,7 +21,6 @@ public class Card : MonoBehaviour
 
     public int GetPower()
     {
-        this.power = Int32.Parse(gameObject.transform.Find("Power").gameObject.GetComponent<Text>().text);
         return this.power;
     }
 

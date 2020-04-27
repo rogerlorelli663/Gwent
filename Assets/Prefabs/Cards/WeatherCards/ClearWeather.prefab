@@ -309,6 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Clear Weather
   cardType: 4
+  hasCardDescripton: 1
   cardFlavorText: 'The sun''s shinin'', Dromle! The sun''s shinin''! Maybe there''s
     hope left after all... '
   cardPower: 0

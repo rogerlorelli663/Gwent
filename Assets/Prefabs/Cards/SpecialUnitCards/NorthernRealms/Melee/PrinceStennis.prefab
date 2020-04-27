@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Prince Stennis
   cardType: 4
-  hasCardDescripton: 0
+  hasCardDescripton: 1
   cardFlavorText: 'He ploughin'' wears golden armor. Golden. ''Course he''s an arsehole. '
   cardPower: 5
   abilityType: 1

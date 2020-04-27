@@ -19,9 +19,10 @@ public class PlayerBehavior : NetworkBehaviour
     public GameObject PlayerMelee;
     public GameObject PlayerRange;
     public GameObject PlayerSiege;
-    private int initialCardAmount = 10;
-
-
+    public GameObject PlayerCounter;
+    public GameObject EnemyCounter;
+    private const int DEALTCARDAMOUNT = 10;
+    List<GameObject> PlayerCards;
     List<GameObject> cards = new List<GameObject>();
     // Start is called before the first frame update
     public override void OnStartClient()
@@ -38,36 +39,22 @@ public class PlayerBehavior : NetworkBehaviour
         PlayerRange = GameObject.FindGameObjectWithTag("Player Range");
         PlayerSiege = GameObject.FindGameObjectWithTag("Player Siege");
         WeatherField = GameObject.Find("Weather Field");
+        EnemyCounter = GameObject.Find("EnemyCounter");
+        PlayerCounter = GameObject.Find("PlayerCounter");
     }
 
     [Server]
     public override void OnStartServer()
     {
-/*        int index;
-        for (int i = 0; i < 4; i++)
-        {
-            cards.Add(WeatherCard);
-        }
-        for (int i = 0; i < 9; i++)
-        {
-            index = Random.Range(0, SpecialCards.Count - 1);
-            cards.Add(SpecialCards[index]);
-        }
-        for (int i = 0; i < 17; i++)
-        {
-            index = Random.Range(0, UnitCards.Count - 1);
-            cards.Add(UnitCards[index]);
-        }*/
-    }
 
-   
+    }
 
     [Command]
     public void CmdDealCards()
     {
         cards = PlayerDeck.GetComponent<Deck>().GetCards();
         int index;
-        for(int i = 0; i < initialCardAmount; i++)
+        for(int i = 0; i < DEALTCARDAMOUNT; i++)
         {
             index = Random.Range(0, cards.Count);
             GameObject card = Instantiate(cards[index], new Vector2(0, 0), Quaternion.identity);
@@ -80,6 +67,7 @@ public class PlayerBehavior : NetworkBehaviour
     public void PlayCard(GameObject card)
     {
         CmdPlayCard(card);
+        PlayerCounter.GetComponent<PlayerCounter>().UpdateCounter();
     }
 
     [Command]
@@ -99,9 +87,7 @@ public class PlayerBehavior : NetworkBehaviour
             }
             else
             {
-
                 card.transform.SetParent(EnemyHand.transform, false);
-                //card.GetComponent<CardFlipper>().Flip();
             }
         }
         else if(type == "Played" && !hasAuthority)
@@ -123,26 +109,7 @@ public class PlayerBehavior : NetworkBehaviour
             {
                 card.transform.SetParent(WeatherField.transform, false);
             }
-        }
-        else if(type == "Played")
-        {
-/*           CardPile.CardPileType CardType = card.GetComponent<Card>().GetCardType();
-            if (CardType == CardPile.CardPileType.MELEE_FIELD)
-            {
-                card.transform.SetParent(PlayerMelee.transform, false);
-            }
-            else if (CardType == CardPile.CardPileType.RANGE_FIELD)
-            {
-                card.transform.SetParent(PlayerRange.transform, false);
-            }
-            else if (CardType == CardPile.CardPileType.SIEGE_FIELD)
-            {
-                card.transform.SetParent(PlayerSiege.transform, false);
-            }
-            else if (CardType == CardPile.CardPileType.EFFECT_FIELD)
-            {
-                card.transform.SetParent(WeatherField.transform, false);
-            }*/
+            EnemyCounter.GetComponent<PlayerCounter>().UpdateCounter();
         }
     }
 }

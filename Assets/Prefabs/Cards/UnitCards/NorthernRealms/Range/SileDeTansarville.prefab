@@ -99,7 +99,7 @@ MonoBehaviour:
   cardType: 5
   hasCardDescripton: 0
   cardFlavorText: 'The Lodge lacks humility. Our lust for power may yet be our undoing. '
-  cardPower: 0
+  cardPower: 5
 --- !u!61 &9000680876532679598
 BoxCollider2D:
   m_ObjectHideFlags: 0

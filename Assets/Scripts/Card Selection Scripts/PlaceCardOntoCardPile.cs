@@ -28,8 +28,9 @@ public class PlaceCardOntoCardPile : MonoBehaviour
                 {
                     NetworkIdentity networkIdentity = NetworkClient.connection.identity;
                     PlayerBehavior = networkIdentity.GetComponent<PlayerBehavior>();
-                    PlayerBehavior.PlayCard(card);
                     AddCardToCardPile(cardPile);
+
+                    PlayerBehavior.PlayCard(card);//
                     cardSelector.DeleteSelectedCardInstance();
                     
                 }
