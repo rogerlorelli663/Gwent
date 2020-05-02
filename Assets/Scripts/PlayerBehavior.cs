@@ -79,7 +79,8 @@ public class PlayerBehavior : NetworkBehaviour
     [ClientRpc]
     void RpcShowCard(GameObject card, string type)
     {
-        if(type == "Dealt")
+        EnemyCounter.GetComponent<PlayerCounter>().UpdateCounter();
+        if (type == "Dealt")
         {
             if(hasAuthority)
             {
@@ -109,7 +110,6 @@ public class PlayerBehavior : NetworkBehaviour
             {
                 card.transform.SetParent(WeatherField.transform, false);
             }
-            EnemyCounter.GetComponent<PlayerCounter>().UpdateCounter();
         }
     }
 }
