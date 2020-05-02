@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27, y: 17.5}
+  m_AnchoredPosition: {x: 25.000002, y: 17.1}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &218308884384776858
@@ -85,10 +85,11 @@ GameObject:
   - component: {fileID: 6935620523227465543}
   - component: {fileID: 6935620523227465542}
   - component: {fileID: 6935620523227465541}
-  - component: {fileID: -412658468361063908}
+  - component: {fileID: -5428183223717513201}
+  - component: {fileID: 8474510778341164276}
   - component: {fileID: 6935620523227465547}
-  - component: {fileID: 3898109301436296210}
-  - component: {fileID: 5964977180323670344}
+  - component: {fileID: 9130697000607014293}
+  - component: {fileID: -8342316676496940490}
   m_Layer: 5
   m_Name: SpecialUnitCard
   m_TagString: Untagged
@@ -157,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67428c436511b214ea531f8bfb2160a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-412658468361063908
+--- !u!114 &-5428183223717513201
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,13 +170,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb3f7b3dc1623e4e915cb28e50f50cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardName: 
-  cardType: 0
-  hasCardDescripton: 0
-  cardFlavorText: 
-  cardPower: 0
-  abilityType: 0
-  cardDescription: 
+  cardName: Dun Banner Medic
+  cardType: 6
+  hasCardDescripton: 1
+  cardFlavorText: Stitch red to red, white to white, and everything will be all right.
+  cardPower: 1
+  abilityType: 2
+  cardDescription: 'Medic: Choose one card from your discard pile and play it instantly
+    (no Heroes or Special Cards).'
+--- !u!114 &8474510778341164276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6935620523227465546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e200721fd54ec4da0e6178e350ed96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &6935620523227465547
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -202,7 +216,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 350}
   m_EdgeRadius: 0
---- !u!114 &3898109301436296210
+--- !u!114 &9130697000607014293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,7 +231,7 @@ MonoBehaviour:
   sceneId: 0
   serverOnly: 0
   m_AssetId: 
---- !u!114 &5964977180323670344
+--- !u!114 &-8342316676496940490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -231,7 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 0
+  clientAuthority: 1
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
@@ -269,8 +283,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: 150}
-  m_SizeDelta: {x: 30, y: 30}
+  m_AnchoredPosition: {x: -70.799995, y: 145.70001}
+  m_SizeDelta: {x: 36.72, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6935620523324665875
 CanvasRenderer:
@@ -346,8 +360,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -70, y: 150}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: -70.8, y: 145.7}
+  m_SizeDelta: {x: 53.19, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6935620523614686111
 CanvasRenderer:
@@ -419,8 +433,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 98}
-  m_SizeDelta: {x: 190, y: 154}
+  m_AnchoredPosition: {x: -0.3, y: 95.2}
+  m_SizeDelta: {x: 188, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6935620523647169464
 CanvasRenderer:
@@ -448,7 +462,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f9f6ed1f7209a4c2a9f31bf9bbc883e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e0200696e6ef40b42b96e46bb00a69e0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -492,8 +506,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -116}
-  m_SizeDelta: {x: 160, y: 90}
+  m_AnchoredPosition: {x: 0, y: -118.3}
+  m_SizeDelta: {x: 160, y: 90.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6935620523725505126
 CanvasRenderer:
@@ -522,21 +536,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
+    m_Font: {fileID: 12800000, guid: d4e0dd8299f9047449dc6dbf0a5c8c6d, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 3
+    m_BestFit: 1
+    m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 0
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Fuck off! We aren''t all ploughin'' philanderers. Some of us have depth...
-
-'
+  m_Text: Stitch red to red, white to white, and everything will be all right.
 --- !u!1 &6935620523933913559
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,8 +583,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -80}
-  m_SizeDelta: {x: 190, y: 190}
+  m_AnchoredPosition: {x: 0, y: -78.39}
+  m_SizeDelta: {x: 188, y: 183.67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6935620523933913554
 CanvasRenderer:
@@ -645,7 +657,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 360}
+  m_SizeDelta: {x: 202, y: 359}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6935620523972306414
 CanvasRenderer:
@@ -718,7 +730,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 360}
+  m_SizeDelta: {x: 202, y: 365}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6935620524252629913
 CanvasRenderer:
@@ -790,8 +802,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -40}
-  m_SizeDelta: {x: 160, y: 60}
+  m_AnchoredPosition: {x: 0, y: -58}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6935620524628530080
 CanvasRenderer:
@@ -820,19 +832,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 22
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 2
+    m_Font: {fileID: 12800000, guid: d4e0dd8299f9047449dc6dbf0a5c8c6d, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 3
+    m_BestFit: 1
+    m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 0
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Thaler
+    m_LineSpacing: 0
+  m_Text: Dun Banner Medic
 --- !u!1 &7753039939964157733
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +879,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27, y: 17.5}
+  m_AnchoredPosition: {x: -27.44, y: 17.1}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &316717421854306543
@@ -896,7 +908,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a7f4b48cfa275470ab4068daaa342418, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 237caed539b49c14aa1eeb543a366d6c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

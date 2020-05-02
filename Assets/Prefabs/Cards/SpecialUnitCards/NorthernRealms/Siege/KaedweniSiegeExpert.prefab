@@ -693,7 +693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Kaedweni Siege Expert
   cardType: 6
-  hasCardDescripton: 1
+  hasCardDescripton: 0
   cardFlavorText: '''You gotta recalibrate the arm by five degrees.'' ''Do what by
     the what now?'' '
   cardPower: 1

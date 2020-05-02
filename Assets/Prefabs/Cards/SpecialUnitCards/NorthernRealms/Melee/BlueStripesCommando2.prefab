@@ -540,7 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Blue Stripes Commando
   cardType: 4
-  hasCardDescripton: 1
+  hasCardDescripton: 0
   cardFlavorText: 'I''d do anything for Temeria. Mostly, though, I kill for her. '
   cardPower: 4
   abilityType: 5

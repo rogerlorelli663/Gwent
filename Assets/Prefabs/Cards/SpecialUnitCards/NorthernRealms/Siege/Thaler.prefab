@@ -696,7 +696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Thaler
   cardType: 6
-  hasCardDescripton: 1
+  hasCardDescripton: 0
   cardFlavorText: 'Fuck off! We aren''t all ploughin'' philanderers. Some of us have
     depth... '
   cardPower: 1

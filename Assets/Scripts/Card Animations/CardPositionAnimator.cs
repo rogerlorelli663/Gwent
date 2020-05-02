@@ -28,7 +28,7 @@ public class CardPositionAnimator : MonoBehaviour
     {
         this.card = card;
         animationPartitionedProgress = animationSpeed / 1;
-        animationProgress = 0;
+        animationProgress = animationPartitionedProgress;
 
         incrementX = (animateToPosition.x - this.card.transform.position.x) * animationPartitionedProgress;
         incrementY = (animateToPosition.y - this.card.transform.position.y) * animationPartitionedProgress;
@@ -44,17 +44,16 @@ public class CardPositionAnimator : MonoBehaviour
 
     void Update()
     {
-        if(card != null && animationProgress < 1)
+        if(card != null && animationProgress <= 1)
         {
             animationProgress += animationPartitionedProgress;
             card.transform.position = new Vector2(card.transform.position.x + incrementX, card.transform.position.y + incrementY);
-
-            if(animationProgress >= 1)
-            {
-                card.transform.position = animateToPosition;
-                isAnimating = false;
-                animateToPosition = defaultAnimateToPosition;
-            }
+        }
+        else if (card != null && isAnimating == true)
+        {
+            card.transform.position = animateToPosition;
+            isAnimating = false;
+            animateToPosition = defaultAnimateToPosition;
         }
     }
 
