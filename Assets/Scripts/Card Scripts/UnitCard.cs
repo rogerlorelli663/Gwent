@@ -6,6 +6,7 @@ public class UnitCard : GwentCard
 {
 
 
+
     [SerializeField] string cardFlavorText;
     [SerializeField] int cardPower;
 

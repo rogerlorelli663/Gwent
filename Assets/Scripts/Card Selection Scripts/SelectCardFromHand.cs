@@ -16,10 +16,17 @@ public class SelectCardFromHand : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             GameObject card = GetClickedCard();
-            if(card != null && ClickedCardIsInHand(card) && cardSelector.IsCardSelectableAndInCardPile())
+            if(card != null)
             {
-                SaveClickedCardInHand(card);
-                CreateCardSelector();
+                if (card.transform.parent.tag.Contains("Enemy Hand"))
+                {
+                    return;
+                }
+                if (ClickedCardIsInHand(card) && cardSelector.IsCardSelectableAndInCardPile())
+                {
+                    SaveClickedCardInHand(card);
+                    CreateCardSelector();
+                }
             }
         }
     }
