@@ -7,6 +7,9 @@ public class PlayerBehavior : NetworkBehaviour
 {
     [SerializeField] List<GameObject> UnitCards;
     [SerializeField] List<GameObject> SpecialCards;
+
+    public GameObject Player;
+    private GameState PlayerGameState;
     public GameObject PlayerDeck;
     public GameObject EnemyDeck;
     public GameObject WeatherCard;
@@ -24,6 +27,17 @@ public class PlayerBehavior : NetworkBehaviour
     private const int DEALTCARDAMOUNT = 10;
     List<GameObject> PlayerCards;
     List<GameObject> cards = new List<GameObject>();
+    public BattleState state;
+
+    public void SetBattleState(BattleState state)
+    {
+        this.state = state;
+    }
+
+    public bool isPlayersTurn()
+    {
+        return this.state == BattleState.PLAYERTURN;
+    }
     // Start is called before the first frame update
     public override void OnStartClient()
     {
@@ -41,6 +55,16 @@ public class PlayerBehavior : NetworkBehaviour
         WeatherField = GameObject.Find("Weather Field");
         EnemyCounter = GameObject.Find("EnemyCounter");
         PlayerCounter = GameObject.Find("PlayerCounter");
+        Player = GameObject.Find("PlayerGameState");
+        PlayerGameState = Player.GetComponent<GameState>();
+        if (isClientOnly)
+        {
+            PlayerGameState.SetBattleState(BattleState.ENEMYTURN);
+        }
+        else
+        {
+            PlayerGameState.SetBattleState(BattleState.PLAYERTURN);
+        }
     }
 
     [Server]
@@ -91,6 +115,10 @@ public class PlayerBehavior : NetworkBehaviour
                 card.transform.SetParent(EnemyHand.transform, false);
             }
         }
+        else if (type == "Played" && hasAuthority)
+        {
+            PlayerGameState.SetBattleState(BattleState.ENEMYTURN);
+        }
         else if(type == "Played" && !hasAuthority)
         {
             CardPile.CardPileType CardType = card.GetComponent<Card>().GetCardType();
@@ -110,6 +138,6 @@ public class PlayerBehavior : NetworkBehaviour
             {
                 card.transform.SetParent(WeatherField.transform, false);
             }
-        }
+            PlayerGameState.SetBattleState(BattleState.PLAYERTURN);        }
     }
 }
