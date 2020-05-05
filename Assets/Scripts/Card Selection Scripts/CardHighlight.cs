@@ -5,51 +5,33 @@ using UnityEngine;
 public class CardHighlight : MonoBehaviour
 {
 
-    private GameObject cardCopy;
-    private GameObject hoveredCard;
+    private Vector2 originalScale;
+    public Vector2 highlightedScale = new Vector2(1f, 1f);
 
-    [SerializeField] private float distanceGap = 0;
+    private GameObject highlightedCard;
 
     void Start()
     {
-        cardCopy = null;
-        hoveredCard = null;
+        highlightedCard = null;
     }
 
     
     void Update()
     {
-        hoveredCard = GetHighlightedCard();
-        if(hoveredCard != null && cardCopy == null)
+        GameObject hitCard = GetHighlightedCard();
+        if(hitCard != null && highlightedCard == null)
         {
-            CreateCopyCard();
+            originalScale = hitCard.transform.localScale;
+            highlightedCard = hitCard;
+            highlightedCard.transform.localScale = highlightedScale;
+            highlightedCard.transform.position = new Vector3(highlightedCard.transform.position.x, highlightedCard.transform.position.y, highlightedCard.transform.position.z - 1);
         }
-        else if(cardCopy != null && hoveredCard == null)
+        else if(hitCard != highlightedCard)
         {
-            DeleteCopyCard();
+            highlightedCard.transform.localScale = originalScale;
+            highlightedCard.transform.position = new Vector3(highlightedCard.transform.position.x, highlightedCard.transform.position.y, highlightedCard.transform.position.z + 1);
+            highlightedCard = null;
         }
-    }
-
-    private void CreateCopyCard()
-    {
-        GameObject cardCopy = Instantiate(hoveredCard, hoveredCard.transform);
-        cardCopy.transform.parent = null;
-        cardCopy.transform.position = hoveredCard.transform.position;
-        float distance = hoveredCard.GetComponent<RectTransform>().rect.height * hoveredCard.transform.localScale.y + distanceGap;
-        if(hoveredCard.transform.parent.GetComponent<CardPileOwner>().GetOwnerOfPile() == CardPileOwner.PileOwner.ENEMY)
-        {
-            cardCopy.transform.position = new Vector2(cardCopy.transform.position.x, cardCopy.transform.position.y - distance);
-        }
-        else
-        {
-            cardCopy.transform.position = new Vector2(cardCopy.transform.position.x, cardCopy.transform.position.y + distance);
-        }
-    }
-
-    private void DeleteCopyCard()
-    {
-        Destroy(cardCopy);
-        cardCopy = null;
     }
 
     private GameObject GetHighlightedCard()

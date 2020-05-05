@@ -623,7 +623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Poor Fucking Infantry
   cardType: 4
-  hasCardDescripton: 0
+  hasCardDescripton: 1
   cardFlavorText: 'I''s a war veteran! ... spare me a crown? '
   cardPower: 1
   abilityType: 5

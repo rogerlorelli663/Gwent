@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Dun Banner Medic
   cardType: 6
-  hasCardDescripton: 0
+  hasCardDescripton: 1
   cardFlavorText: 'Stitch red to red, white to white, and everything will be all
     right. '
   cardPower: 5
