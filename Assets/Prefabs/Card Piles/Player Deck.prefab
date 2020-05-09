@@ -70,6 +70,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aece6ce0bbb6554897eac0128b5ca32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardWidth: 200
+  cardHeight: 350
+  cardScale: 0.3
 --- !u!114 &2957945021472598677
 MonoBehaviour:
   m_ObjectHideFlags: 0
