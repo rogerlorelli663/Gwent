@@ -309,7 +309,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Torrential Rain
   cardType: 4
-  hasCardDescripton: 1
   cardFlavorText: 'Even the rain in this land smells like piss. '
   cardPower: 0
   abilityType: 11

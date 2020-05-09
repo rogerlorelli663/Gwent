@@ -10,12 +10,12 @@ public class PlayerCounter : MonoBehaviour
     public PileCounter Melee;
     public PileCounter Range;
     public PileCounter Siege;
-
+    private int totalPoints;
     // Start is called before the first frame update
 
     // Update is called once per frame
 
-    public void UpdateCounter()
+    public int UpdateCounter()
     {
         int sum = 0;
         string totalPower;
@@ -24,5 +24,13 @@ public class PlayerCounter : MonoBehaviour
         sum += Siege.GetPileTotal();
         totalPower = "" + sum;
         this.GetComponentInChildren<Text>().text = totalPower;
+        this.totalPoints = sum;
+        return sum;
     }
+
+    public int GetCurrentPoints()
+    {
+        return this.totalPoints;
+    }
+
 }

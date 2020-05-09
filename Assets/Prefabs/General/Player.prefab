@@ -106,7 +106,13 @@ MonoBehaviour:
   - {fileID: 1118976923648269204, guid: 9201690d899d3440e968655e2595b752, type: 3}
   - {fileID: 4936902732276978373, guid: 477a09016b4f94ef9924f26f35057444, type: 3}
   - {fileID: 6267555763746223027, guid: 2a364d8ab5c4843ceaacbd864d558385, type: 3}
+  Player: {fileID: 0}
+  Enemy: {fileID: 0}
   PlayerDeck: {fileID: 0}
+  PassingToken: {fileID: 1499672563657424161, guid: b30217ccdcded70408a8e29b2c9f9fd6,
+    type: 3}
+  EndOfRoundToken: {fileID: 1499672563657424161, guid: 430bc6a1708c13e4492c92510ed3e3f9,
+    type: 3}
   EnemyDeck: {fileID: 0}
   WeatherCard: {fileID: 0}
   WeatherField: {fileID: 0}
@@ -118,3 +124,6 @@ MonoBehaviour:
   PlayerMelee: {fileID: 0}
   PlayerRange: {fileID: 0}
   PlayerSiege: {fileID: 0}
+  PlayerCounter: {fileID: 0}
+  EnemyCounter: {fileID: 0}
+  state: 0

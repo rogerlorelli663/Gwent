@@ -7,7 +7,14 @@ public class PlayerBehavior : NetworkBehaviour
 {
     [SerializeField] List<GameObject> UnitCards;
     [SerializeField] List<GameObject> SpecialCards;
+
+    public GameObject Player;
+    private GameState PlayerGameState;
+    public GameObject Enemy;
+    private GameState EnemyGameState;
     public GameObject PlayerDeck;
+    public GameObject PassingToken;
+    public GameObject EndOfRoundToken;
     public GameObject EnemyDeck;
     public GameObject WeatherCard;
     public GameObject WeatherField;
@@ -24,6 +31,8 @@ public class PlayerBehavior : NetworkBehaviour
     private const int DEALTCARDAMOUNT = 10;
     List<GameObject> PlayerCards;
     List<GameObject> cards = new List<GameObject>();
+    public BattleState state;
+
     // Start is called before the first frame update
     public override void OnStartClient()
     {
@@ -41,6 +50,20 @@ public class PlayerBehavior : NetworkBehaviour
         WeatherField = GameObject.Find("Weather Field");
         EnemyCounter = GameObject.Find("EnemyCounter");
         PlayerCounter = GameObject.Find("PlayerCounter");
+        Player = GameObject.Find("PlayerGameState");
+        PlayerGameState = Player.GetComponent<GameState>();
+        Enemy = GameObject.Find("EnemyGameState");
+        EnemyGameState = Enemy.GetComponent<GameState>();
+        if (isClientOnly)
+        {
+            PlayerGameState.SetBattleState(BattleState.ENEMYTURN);
+            EnemyGameState.SetBattleState(BattleState.PLAYERTURN);
+        }
+        else
+        {
+            PlayerGameState.SetBattleState(BattleState.PLAYERTURN);
+            EnemyGameState.SetBattleState(BattleState.ENEMYTURN);
+        }
     }
 
     [Server]
@@ -63,11 +86,85 @@ public class PlayerBehavior : NetworkBehaviour
             RpcShowCard(card, "Dealt");
         }
     }
+    
+    [Command]
+    public void CmdPassTurn()
+    {
+        GameObject passingToken = Instantiate(PassingToken, new Vector2(0, 0), Quaternion.identity);
+        RpcPassTurn(passingToken);
+    }
+
+    [ClientRpc]
+    private void RpcPassTurn(GameObject passingToken)
+    {
+        if(hasAuthority)
+        {
+            PlayerGameState.SetBattleState(BattleState.PLAYERPASSING);
+            if(!EnemyGameState.isPlayersPassing())
+            {
+                EnemyGameState.SetBattleState(BattleState.PLAYERTURN);
+            }
+            CmdCheckEndofRound();
+        }
+        else
+        {
+            EnemyGameState.SetBattleState(BattleState.PLAYERPASSING);
+            if(!PlayerGameState.isPlayersPassing())
+            {
+                PlayerGameState.SetBattleState(BattleState.PLAYERTURN);
+            }
+        }
+    }
+
+    [Command]
+    private void CmdCheckEndofRound()
+    {
+        GameObject eorToken = Instantiate(EndOfRoundToken, new Vector2(0, 0), Quaternion.identity);
+        RpcRunEndOfRoundCalculations(eorToken);
+    }
+
+    [ClientRpc]
+    private void RpcRunEndOfRoundCalculations(GameObject EndOfRoundToken)
+    {
+        if(hasAuthority)
+        {
+            if(PlayerGameState.isPlayersPassing() && EnemyGameState.isPlayersPassing())
+            {
+                EndOfRoundCalc();
+            }
+        }
+        else
+        {
+            if (PlayerGameState.isPlayersPassing() && EnemyGameState.isPlayersPassing())
+            {
+                EndOfRoundCalc();
+            }
+        }
+    }
+
+    private void EndOfRoundCalc()
+    {
+        int playerPoints = PlayerCounter.GetComponent<PlayerCounter>().GetCurrentPoints();
+        int enemyPoints = EnemyCounter.GetComponent<PlayerCounter>().GetCurrentPoints();
+        if (playerPoints > enemyPoints)
+        {
+            Debug.Log("Player Wins!!!");
+        }
+        else if(enemyPoints > playerPoints)
+        {
+            Debug.Log("Enemy Wins!!!");
+        }
+        else
+        {
+            Debug.Log("Draw!!!");
+        }
+    }
+
+
 
     public void PlayCard(GameObject card)
     {
         CmdPlayCard(card);
-        PlayerCounter.GetComponent<PlayerCounter>().UpdateCounter();
     }
 
     [Command]
@@ -79,7 +176,6 @@ public class PlayerBehavior : NetworkBehaviour
     [ClientRpc]
     void RpcShowCard(GameObject card, string type)
     {
-        EnemyCounter.GetComponent<PlayerCounter>().UpdateCounter();
         if (type == "Dealt")
         {
             if(hasAuthority)
@@ -90,6 +186,31 @@ public class PlayerBehavior : NetworkBehaviour
             {
                 card.transform.SetParent(EnemyHand.transform, false);
             }
+        }
+        else if (type == "Played" && hasAuthority)
+        {
+            if (!EnemyGameState.isPlayersPassing())
+            {
+                if (PlayerHand.GetComponent<CardPile>().GetNumberOfCards() > 0)
+                {
+                    PlayerGameState.SetBattleState(BattleState.ENEMYTURN);
+                }
+                else
+                {
+                    PlayerGameState.SetBattleState(BattleState.PLAYERPASSING);
+                }
+            }
+            else if (PlayerHand.GetComponent<CardPile>().GetNumberOfCards() > 0)
+            {
+                PlayerGameState.SetBattleState(BattleState.PLAYERTURN);
+            }
+            else
+            {
+                PlayerGameState.SetBattleState(BattleState.PLAYERPASSING);
+            }
+            PlayerCounter.GetComponent<PlayerCounter>().UpdateCounter();
+            EnemyCounter.GetComponent<PlayerCounter>().UpdateCounter();
+            CmdCheckEndofRound();
         }
         else if(type == "Played" && !hasAuthority)
         {
@@ -110,6 +231,12 @@ public class PlayerBehavior : NetworkBehaviour
             {
                 card.transform.SetParent(WeatherField.transform, false);
             }
+            if(!PlayerGameState.isPlayersPassing())
+            {
+                PlayerGameState.SetBattleState(BattleState.PLAYERTURN);
+            }
+            PlayerCounter.GetComponent<PlayerCounter>().UpdateCounter();
+            EnemyCounter.GetComponent<PlayerCounter>().UpdateCounter();
         }
     }
 }
