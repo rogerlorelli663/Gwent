@@ -14,6 +14,7 @@ public class PlayerBehavior : NetworkBehaviour
     private GameState EnemyGameState;
     public GameObject PlayerDeck;
     public GameObject PassingToken;
+    public GameObject EndOfRoundToken;
     public GameObject EnemyDeck;
     public GameObject WeatherCard;
     public GameObject WeatherField;
@@ -118,24 +119,49 @@ public class PlayerBehavior : NetworkBehaviour
     [Command]
     private void CmdCheckEndofRound()
     {
-        if (PlayerGameState.isPlayersPassing() && EnemyGameState.isPlayersPassing())
-        {
-            Debug.Log("Both Players have either played all their cards or have passed!");
-/*            int playerSum = 0;
-            int enemySum = 0;
-            playerSum = PlayerCounter.GetComponent<PlayerCounter>().UpdateCounter();
-            enemySum = EnemyCounter.GetComponent<PlayerCounter>().UpdateCounter();*/
-        }
+        GameObject eorToken = Instantiate(EndOfRoundToken, new Vector2(0, 0), Quaternion.identity);
+        RpcRunEndOfRoundCalculations(eorToken);
     }
 
     [ClientRpc]
-    private void RpcRunEndOfRoundCalculations()
+    private void RpcRunEndOfRoundCalculations(GameObject EndOfRoundToken)
     {
         if(hasAuthority)
         {
-
+            if(PlayerGameState.isPlayersPassing() && EnemyGameState.isPlayersPassing())
+            {
+                EndOfRoundCalc();
+            }
+        }
+        else
+        {
+            if (PlayerGameState.isPlayersPassing() && EnemyGameState.isPlayersPassing())
+            {
+                EndOfRoundCalc();
+            }
         }
     }
+
+    private void EndOfRoundCalc()
+    {
+        int playerPoints = PlayerCounter.GetComponent<PlayerCounter>().GetCurrentPoints();
+        int enemyPoints = EnemyCounter.GetComponent<PlayerCounter>().GetCurrentPoints();
+        if (playerPoints > enemyPoints)
+        {
+            Debug.Log("Player Wins!!!");
+        }
+        else if(enemyPoints > playerPoints)
+        {
+            Debug.Log("Enemy Wins!!!");
+        }
+        else
+        {
+            Debug.Log("Draw!!!");
+        }
+    }
+
+
+
     public void PlayCard(GameObject card)
     {
         CmdPlayCard(card);

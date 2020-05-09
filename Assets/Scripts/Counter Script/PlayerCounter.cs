@@ -10,7 +10,6 @@ public class PlayerCounter : MonoBehaviour
     public PileCounter Melee;
     public PileCounter Range;
     public PileCounter Siege;
-    public PlayerCounter EnemyCounter;
     private int totalPoints;
     // Start is called before the first frame update
 
@@ -32,10 +31,6 @@ public class PlayerCounter : MonoBehaviour
     public int GetCurrentPoints()
     {
         return this.totalPoints;
-    }
-    public void EndOfRound()
-    {
-
     }
 
 }

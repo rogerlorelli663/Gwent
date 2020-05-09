@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public enum BattleState {START, PLAYERTURN, ENEMYTURN, WON, LOST, PLAYERPASSING, ENEMYPASSING}
+public enum BattleState {START, PLAYERTURN, ENEMYTURN, WON, LOST, PLAYERPASSING, ENEMYPASSING, EOR}
 public class GameState : NetworkBehaviour
 {
     public PlayerBehavior PlayerBehavior;

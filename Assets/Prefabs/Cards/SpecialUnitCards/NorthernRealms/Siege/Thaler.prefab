@@ -612,8 +612,6 @@ GameObject:
   - component: {fileID: 4488880883062220473}
   - component: {fileID: 5903968018568181452}
   - component: {fileID: 4184191704580922313}
-  - component: {fileID: 5149737981081824180}
-  - component: {fileID: 7740101557255954207}
   m_Layer: 5
   m_Name: Thaler
   m_TagString: Untagged
@@ -630,7 +628,7 @@ RectTransform:
   m_GameObject: {fileID: 6267555763746223027}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2271968235495721739}
   - {fileID: 9006709215945476079}
@@ -695,8 +693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardName: Thaler
-  cardType: 6
-  hasCardDescripton: 1
+  cardType: 1
   cardFlavorText: 'Fuck off! We aren''t all ploughin'' philanderers. Some of us have
     depth... '
   cardPower: 1
@@ -729,39 +726,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 350}
   m_EdgeRadius: 0
---- !u!114 &5149737981081824180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6267555763746223027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  m_AssetId: 
---- !u!114 &7740101557255954207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6267555763746223027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  clientAuthority: 0
-  localPositionSensitivity: 0.01
-  localRotationSensitivity: 0.01
-  localScaleSensitivity: 0.01
 --- !u!1 &6401351884001511145
 GameObject:
   m_ObjectHideFlags: 0

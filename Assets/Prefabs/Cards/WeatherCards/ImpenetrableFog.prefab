@@ -382,7 +382,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Impenetrable Fog
   cardType: 4
-  hasCardDescripton: 1
   cardFlavorText: 'A good commander''s dream... a bad one''s horror. '
   cardPower: 0
   abilityType: 10

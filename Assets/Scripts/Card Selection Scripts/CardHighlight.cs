@@ -19,14 +19,14 @@ public class CardHighlight : MonoBehaviour
     void Update()
     {
         GameObject hitCard = GetHighlightedCard();
-        if(hitCard != null && highlightedCard == null)
+        if (hitCard != null && highlightedCard == null && hitCard.transform.parent.GetComponent<CardPile>() != null)
         {
             originalScale = hitCard.transform.localScale;
             highlightedCard = hitCard;
             highlightedCard.transform.localScale = highlightedScale;
             highlightedCard.transform.position = new Vector3(highlightedCard.transform.position.x, highlightedCard.transform.position.y, highlightedCard.transform.position.z - 1);
         }
-        else if(hitCard != highlightedCard)
+        else if (hitCard != highlightedCard && highlightedCard != null)
         {
             highlightedCard.transform.localScale = originalScale;
             highlightedCard.transform.position = new Vector3(highlightedCard.transform.position.x, highlightedCard.transform.position.y, highlightedCard.transform.position.z + 1);

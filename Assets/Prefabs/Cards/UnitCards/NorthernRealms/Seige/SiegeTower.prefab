@@ -87,8 +87,6 @@ GameObject:
   - component: {fileID: 2694225083391975071}
   - component: {fileID: 4643221131534310218}
   - component: {fileID: 7063064173385790494}
-  - component: {fileID: 5276059199437544403}
-  - component: {fileID: -7611769848877039145}
   m_Layer: 5
   m_Name: SiegeTower
   m_TagString: Untagged
@@ -169,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardName: Siege Tower
-  cardType: 6
+  cardType: 3
   hasCardDescripton: 0
   cardFlavorText: I love the clamor of siege towers in the morning. Sounds like victory.
   cardPower: 6
@@ -199,39 +197,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 350}
   m_EdgeRadius: 0
---- !u!114 &5276059199437544403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584782458055349971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  m_AssetId: 
---- !u!114 &-7611769848877039145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1584782458055349971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  clientAuthority: 0
-  localPositionSensitivity: 0.01
-  localRotationSensitivity: 0.01
-  localScaleSensitivity: 0.01
 --- !u!1 &1871672366459893197
 GameObject:
   m_ObjectHideFlags: 0

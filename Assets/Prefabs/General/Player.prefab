@@ -111,6 +111,8 @@ MonoBehaviour:
   PlayerDeck: {fileID: 0}
   PassingToken: {fileID: 1499672563657424161, guid: b30217ccdcded70408a8e29b2c9f9fd6,
     type: 3}
+  EndOfRoundToken: {fileID: 1499672563657424161, guid: 430bc6a1708c13e4492c92510ed3e3f9,
+    type: 3}
   EnemyDeck: {fileID: 0}
   WeatherCard: {fileID: 0}
   WeatherField: {fileID: 0}
