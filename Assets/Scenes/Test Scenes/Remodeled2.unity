@@ -3435,6 +3435,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5083274369393867389, guid: f4f06b97aa5c5b14ab9b28d85f3296e2,
+        type: 3}
+      propertyPath: cardWidth
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 7375344688411589707, guid: f4f06b97aa5c5b14ab9b28d85f3296e2,
         type: 3}
       propertyPath: sceneId
@@ -3568,6 +3573,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 528907871444355070, guid: f047c7e14febe9d4896a76a8536e7acf,
+        type: 3}
+      propertyPath: cardWidth
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2847991412058669512, guid: f047c7e14febe9d4896a76a8536e7acf,
         type: 3}
@@ -3727,6 +3737,21 @@ PrefabInstance:
       propertyPath: m_AssetId
       value: 2a9611db81c7dbc48a47e391fbaa6017
       objectReference: {fileID: 0}
+    - target: {fileID: 8659160897811949001, guid: 2a9611db81c7dbc48a47e391fbaa6017,
+        type: 3}
+      propertyPath: cardWidth
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8659160897811949001, guid: 2a9611db81c7dbc48a47e391fbaa6017,
+        type: 3}
+      propertyPath: cardHeight
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 8659160897811949001, guid: 2a9611db81c7dbc48a47e391fbaa6017,
+        type: 3}
+      propertyPath: cardScale
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8659160897811949006, guid: 2a9611db81c7dbc48a47e391fbaa6017,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3855,6 +3880,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player Melee Boost
+      objectReference: {fileID: 0}
+    - target: {fileID: 172698695082482779, guid: 9c856aee7a87e8e42aac1d9bf6a50016,
+        type: 3}
+      propertyPath: cardWidth
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 172698695082482780, guid: 9c856aee7a87e8e42aac1d9bf6a50016,
         type: 3}
@@ -4084,6 +4114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249443088350929829, guid: d9646cf1b4578c84b9cd19cd3b100be3,
+        type: 3}
+      propertyPath: cardWidth
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5249443088350929853, guid: d9646cf1b4578c84b9cd19cd3b100be3,
         type: 3}
@@ -4743,6 +4778,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e519eced27cb0f345ba9295cc7bd4bdf, type: 3}
+--- !u!1 &4427791813256857139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4427791813228535139, guid: e519eced27cb0f345ba9295cc7bd4bdf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4427791813256857138}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4427791813256857140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4427791813256857139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a2936c114312fc408b86597d9221b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightedScale: {x: 0.35, y: 0.35}
 --- !u!1001 &4428412951044387136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4988,6 +5042,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 598964937893967533, guid: f7421bb57722cff40b8791f1899e05bd,
+        type: 3}
+      propertyPath: cardWidth
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 598964937893967541, guid: f7421bb57722cff40b8791f1899e05bd,
         type: 3}
@@ -5793,6 +5852,11 @@ PrefabInstance:
       propertyPath: m_AssetId
       value: 39fd631f1c024ca4ea3977d35e96ef65
       objectReference: {fileID: 0}
+    - target: {fileID: 7233883695969454474, guid: 39fd631f1c024ca4ea3977d35e96ef65,
+        type: 3}
+      propertyPath: cardWidth
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7233883695969454477, guid: 39fd631f1c024ca4ea3977d35e96ef65,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6234,6 +6298,21 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7847356514673696355, guid: 744ca85371ed8a44fa5fad4f1f0fed74,
+        type: 3}
+      propertyPath: cardWidth
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847356514673696355, guid: 744ca85371ed8a44fa5fad4f1f0fed74,
+        type: 3}
+      propertyPath: cardHeight
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847356514673696355, guid: 744ca85371ed8a44fa5fad4f1f0fed74,
+        type: 3}
+      propertyPath: cardScale
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7847356514673696356, guid: 744ca85371ed8a44fa5fad4f1f0fed74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6508,6 +6587,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2957945021472598676, guid: 4a15356328f205040924645c9c4d54ad,
+        type: 3}
+      propertyPath: cardWidth
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 3764353012035516256, guid: 4a15356328f205040924645c9c4d54ad,
         type: 3}
       propertyPath: sceneId
@@ -6557,6 +6641,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1739332469}
     m_Modifications:
+    - target: {fileID: 1478862714530541827, guid: c93af7f52caedea4396253c8e5ba6f1d,
+        type: 3}
+      propertyPath: cardWidth
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 1478862714530541828, guid: c93af7f52caedea4396253c8e5ba6f1d,
         type: 3}
       propertyPath: m_LocalPosition.x
