@@ -13,5 +13,24 @@ public class MainManu : MonoBehaviour
     public void QuitGame(){
         Application.Quit();
     }
-    
+
+    public void Tutorial()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+    }
+
+    public void TutorialtoMainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+    }
+
+    public void GametoMainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public void GametoTutorial()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }

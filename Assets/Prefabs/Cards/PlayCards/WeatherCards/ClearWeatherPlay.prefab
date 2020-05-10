@@ -87,6 +87,8 @@ GameObject:
   - component: {fileID: 3169418750303379164}
   - component: {fileID: 3041716793274776476}
   - component: {fileID: 2224918009735234523}
+  - component: {fileID: 3864711359655706435}
+  - component: {fileID: 4462882595174649255}
   m_Layer: 5
   m_Name: ClearWeatherPlay
   m_TagString: Untagged
@@ -162,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardName: Clear Weather
-  cardType: 4
+  cardType: 7
   hasCardDescripton: 1
   cardFlavorText: 'The sun''s shinin'', Dromle! The sun''s shinin''! Maybe there''s
     hope left after all... '
@@ -196,6 +198,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 350}
   m_EdgeRadius: 0
+--- !u!114 &3864711359655706435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912339130661032291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  m_AssetId: 
+--- !u!114 &4462882595174649255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912339130661032291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 0
+  localPositionSensitivity: 0.01
+  localRotationSensitivity: 0.01
+  localScaleSensitivity: 0.01
 --- !u!1 &5739700981748304403
 GameObject:
   m_ObjectHideFlags: 0
