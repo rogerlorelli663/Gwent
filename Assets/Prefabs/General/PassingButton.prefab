@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9148516756193317403}
   - component: {fileID: 3307700577444754193}
   - component: {fileID: 4266694471402133811}
+  - component: {fileID: 8339513619035617374}
   m_Layer: 5
   m_Name: PassingButton
   m_TagString: Untagged
@@ -118,8 +119,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SetBattleStateToPassing
+      - m_Target: {fileID: 3657775490445120117, guid: cf9816b49bf020e4c9ffde2d816c2ee8,
+          type: 3}
+        m_MethodName: SetPassing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -129,6 +131,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8339513619035617374}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8339513619035617374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887421721361968261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c83b1de81fd9504dbe43d92d9a44095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1908715717133667569
 GameObject:
   m_ObjectHideFlags: 0
