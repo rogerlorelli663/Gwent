@@ -6056,6 +6056,17 @@ PrefabInstance:
       propertyPath: sceneId
       value: 1193559321
       objectReference: {fileID: 0}
+    - target: {fileID: 8010390206520003384, guid: c5c0f9d1fd1a1e2489f744532d4e7aae,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 73d4e70c724ac46ddb09f32f4edf30cc,
+        type: 3}
+    - target: {fileID: 8010390206520003384, guid: c5c0f9d1fd1a1e2489f744532d4e7aae,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8010390206520003386, guid: c5c0f9d1fd1a1e2489f744532d4e7aae,
         type: 3}
       propertyPath: MainMenuButton
@@ -6134,7 +6145,7 @@ PrefabInstance:
     - target: {fileID: 8010390206520003390, guid: c5c0f9d1fd1a1e2489f744532d4e7aae,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 770
+      value: 764.99994
       objectReference: {fileID: 0}
     - target: {fileID: 8010390206520003390, guid: c5c0f9d1fd1a1e2489f744532d4e7aae,
         type: 3}
@@ -6887,6 +6898,18 @@ PrefabInstance:
       propertyPath: ENEMYCRYSTAL
       value: 
       objectReference: {fileID: 2941087243283094854, guid: a0267b671d9955247ad7dfba2f6afcdf,
+        type: 3}
+    - target: {fileID: -2540040399335044601, guid: 862d7d4df63065540b41e4d1a4b84062,
+        type: 3}
+      propertyPath: PLAYERCRYSTALDONE
+      value: 
+      objectReference: {fileID: 8597522033800721379, guid: b525bb54a80a40e43a0b9782cf66b38f,
+        type: 3}
+    - target: {fileID: -2540040399335044601, guid: 862d7d4df63065540b41e4d1a4b84062,
+        type: 3}
+      propertyPath: ENEMYCRYSTALDONE
+      value: 
+      objectReference: {fileID: 6153179926840209782, guid: 7fd79b0560e47a74c9e2a656131735cb,
         type: 3}
     - target: {fileID: 2795208921606214521, guid: 862d7d4df63065540b41e4d1a4b84062,
         type: 3}
