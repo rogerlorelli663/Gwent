@@ -28,6 +28,6 @@ public class GameState : NetworkBehaviour
     {
         NetworkIdentity networkIdentity = NetworkClient.connection.identity;
         PlayerBehavior = networkIdentity.GetComponent<PlayerBehavior>();
-        PlayerBehavior.CmdPassTurn();
+        PlayerBehavior.PassTurn();
     }
 }

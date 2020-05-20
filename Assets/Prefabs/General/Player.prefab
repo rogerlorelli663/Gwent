@@ -103,14 +103,22 @@ MonoBehaviour:
   - {fileID: 2789389017382000907, guid: 8712d1cd2f09fdd44a0321433668fca6, type: 3}
   - {fileID: 7372741672166168272, guid: 9157e8b7ba4b60441a93fb84379a2d0a, type: 3}
   - {fileID: 241596429582182967, guid: d94c2bd5fad9d0d40b730f1940864601, type: 3}
+  Player1Live: {fileID: 21300000, guid: 059e0200b58f439459fd2ce08a794e91, type: 3}
+  Player1Dead: {fileID: 21300000, guid: 0cfb8a81621280e40affc8a04ee98546, type: 3}
+  Player2Live: {fileID: 21300000, guid: a20ad592324eeca408ef226fc1ad3752, type: 3}
+  Player2Dead: {fileID: 21300000, guid: aafbaa1d513796647875fdadbce9df22, type: 3}
+  Menu: {fileID: 0}
+  Rounds: {fileID: 0}
   Player: {fileID: 0}
   Enemy: {fileID: 0}
   PlayerDeck: {fileID: 0}
+  PlayerDiscard: {fileID: 0}
   PassingToken: {fileID: 1499672563657424161, guid: 3482a36b51db795458e39b14a1e0bfb4,
     type: 3}
   EndOfRoundToken: {fileID: 1499672563657424161, guid: e6cea7ccb9b95004a8740833d4c8073a,
     type: 3}
   EnemyDeck: {fileID: 0}
+  EnemyDiscard: {fileID: 0}
   WeatherCard: {fileID: 0}
   WeatherField: {fileID: 0}
   EnemyHand: {fileID: 0}
@@ -123,4 +131,15 @@ MonoBehaviour:
   PlayerSiege: {fileID: 0}
   PlayerCounter: {fileID: 0}
   EnemyCounter: {fileID: 0}
-  state: 0
+  PlayerCrystal: {fileID: 205132271523943819, guid: 0e22e8f1565711b438018060d4317f99,
+    type: 3}
+  PlayerCrystalDone: {fileID: 8597522033800721379, guid: b525bb54a80a40e43a0b9782cf66b38f,
+    type: 3}
+  EnemyCrystal: {fileID: 2941087243283094854, guid: a0267b671d9955247ad7dfba2f6afcdf,
+    type: 3}
+  EnemyCrystalDone: {fileID: 6153179926840209782, guid: 7fd79b0560e47a74c9e2a656131735cb,
+    type: 3}
+  PlayerCrystalPile: {fileID: 626641205925772213, guid: 9c678098af9ebb5419227cc29fb069b2,
+    type: 3}
+  EnemyCrystalPile: {fileID: 4753202111342636633, guid: bae1bcdbc83503140a33b0a3800efc33,
+    type: 3}
