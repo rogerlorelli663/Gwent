@@ -22,7 +22,8 @@ public class SpecialCard : UnitCard
 
     [SerializeField] private AbilityType abilityType;
     [SerializeField] public string cardDescription;
-    public string getCardDescription()
+
+    public string GetCardDescription()
     {
         return this.cardDescription;
     }

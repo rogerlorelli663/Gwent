@@ -87,8 +87,6 @@ GameObject:
   - component: {fileID: 7434050923359587851}
   - component: {fileID: 281442193405703567}
   - component: {fileID: 2941148065810757142}
-  - component: {fileID: 5129721870077113217}
-  - component: {fileID: 5791848000080959515}
   m_Layer: 5
   m_Name: SigismundDijkstra
   m_TagString: Untagged
@@ -105,7 +103,7 @@ RectTransform:
   m_GameObject: {fileID: 1834679350298739356}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5974000457686841227}
   - {fileID: 1669971515946322507}
@@ -170,8 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardName: Sigismund Dijkstra
-  cardType: 4
-  hasCardDescripton: 0
+  cardType: 1
   cardFlavorText: 'Gwent''s like politics, just more honest. '
   cardPower: 4
   abilityType: 1
@@ -203,39 +200,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 350}
   m_EdgeRadius: 0
---- !u!114 &5129721870077113217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1834679350298739356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  m_AssetId: 
---- !u!114 &5791848000080959515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1834679350298739356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  clientAuthority: 0
-  localPositionSensitivity: 0.01
-  localRotationSensitivity: 0.01
-  localScaleSensitivity: 0.01
 --- !u!1 &1999566435577737435
 GameObject:
   m_ObjectHideFlags: 0

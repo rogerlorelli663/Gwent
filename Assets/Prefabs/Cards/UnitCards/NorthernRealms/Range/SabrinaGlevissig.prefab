@@ -383,8 +383,6 @@ GameObject:
   - component: {fileID: 4223691050984892839}
   - component: {fileID: 8404531484671364042}
   - component: {fileID: 485541941031906472}
-  - component: {fileID: -4333073204465760011}
-  - component: {fileID: 6658666146831752905}
   m_Layer: 5
   m_Name: SabrinaGlevissig
   m_TagString: Untagged
@@ -465,7 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardName: Sabrina Glevissig
-  cardType: 5
+  cardType: 2
   hasCardDescripton: 0
   cardFlavorText: The Daughter of the Kaedweni Wilderness.
   cardPower: 4
@@ -495,39 +493,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 350}
   m_EdgeRadius: 0
---- !u!114 &-4333073204465760011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5587654978403612191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  m_AssetId: 
---- !u!114 &6658666146831752905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5587654978403612191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  clientAuthority: 0
-  localPositionSensitivity: 0.01
-  localRotationSensitivity: 0.01
-  localScaleSensitivity: 0.01
 --- !u!1 &5699591132840536333
 GameObject:
   m_ObjectHideFlags: 0

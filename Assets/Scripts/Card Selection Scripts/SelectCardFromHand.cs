@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SelectCardFromHand : MonoBehaviour
 {
+    private GameState Player;
     private CardSelector cardSelector;
 
     private void Start()
@@ -15,11 +16,26 @@ public class SelectCardFromHand : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            GameObject card = GetClickedCard();
-            if(card != null && ClickedCardIsInHand(card) && cardSelector.IsCardSelectableAndInCardPile())
+            if(Player == null)
             {
-                SaveClickedCardInHand(card);
-                CreateCardSelector();
+                Player = GameObject.Find("PlayerGameState").GetComponent<GameState>();
+            }
+            if(!Player.isPlayersTurn())
+            {
+                return;
+            }
+            GameObject card = GetClickedCard();
+            if(card != null)
+            {
+                if (card.transform.parent.tag.Contains("Enemy Hand"))
+                {
+                    return;
+                }
+                if (ClickedCardIsInHand(card) && cardSelector.IsCardSelectableAndInCardPile())
+                {
+                    SaveClickedCardInHand(card);
+                    CreateCardSelector();
+                }
             }
         }
     }

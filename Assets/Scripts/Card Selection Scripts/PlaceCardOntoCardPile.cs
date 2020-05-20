@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 public class PlaceCardOntoCardPile : MonoBehaviour
 {
-
+    private PlayerBehavior PlayerBehavior;
     private CardSelector cardSelector;
-
+    private CardPile.CardPileType cardType;
+    private GameObject card;
     void Start()
     {
         cardSelector = GetComponent<CardSelector>();
@@ -18,10 +20,19 @@ public class PlaceCardOntoCardPile : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             GameObject cardPile = GetClickedCardPile();
-            if (cardPile != null && cardSelector.IsCardPlaceableAndInCardSelector())
+            if (cardPile != null && cardSelector.IsCardPlaceableAndInCardSelector() && !cardPile.tag.Contains("Enemy Melee") && !cardPile.tag.Contains("Enemy Range") && !cardPile.tag.Contains("Enemy Siege"))
             {
-                AddCardToCardPile(cardPile);
-                cardSelector.DeleteSelectedCardInstance();
+                card = cardSelector.GetOriginalCard();
+                cardType = card.GetComponent<Card>().GetCardType();
+                if (cardType == cardPile.GetComponent<CardPile>().GetCardPileType())
+                {
+                    NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+                    PlayerBehavior = networkIdentity.GetComponent<PlayerBehavior>();
+                    AddCardToCardPile(cardPile);
+                    PlayerBehavior.PlayCard(card);
+                    cardSelector.DeleteSelectedCardInstance();
+                    
+                }
             }
         }
     }

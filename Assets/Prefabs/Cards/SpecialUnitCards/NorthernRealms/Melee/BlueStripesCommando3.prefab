@@ -387,8 +387,6 @@ GameObject:
   - component: {fileID: 4077715870368657800}
   - component: {fileID: 5496952663316972724}
   - component: {fileID: 7604961079394218230}
-  - component: {fileID: 3026024398135161598}
-  - component: {fileID: 2221473767101129113}
   m_Layer: 5
   m_Name: BlueStripesCommando3
   m_TagString: Untagged
@@ -405,7 +403,7 @@ RectTransform:
   m_GameObject: {fileID: 6051051181977478681}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2374411041636096922}
   - {fileID: 6527767730979255868}
@@ -470,8 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardName: Blue Stripes Commando
-  cardType: 4
-  hasCardDescripton: 0
+  cardType: 1
   cardFlavorText: 'I''d do anything for Temeria. Mostly, though, I kill for her. '
   cardPower: 4
   abilityType: 5
@@ -503,39 +500,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 200, y: 350}
   m_EdgeRadius: 0
---- !u!114 &3026024398135161598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6051051181977478681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  m_AssetId: 
---- !u!114 &2221473767101129113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6051051181977478681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  clientAuthority: 0
-  localPositionSensitivity: 0.01
-  localRotationSensitivity: 0.01
-  localScaleSensitivity: 0.01
 --- !u!1 &6086907753561332584
 GameObject:
   m_ObjectHideFlags: 0

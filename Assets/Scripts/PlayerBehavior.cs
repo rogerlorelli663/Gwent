@@ -7,7 +7,14 @@ public class PlayerBehavior : NetworkBehaviour
 {
     [SerializeField] List<GameObject> UnitCards;
     [SerializeField] List<GameObject> SpecialCards;
+
+    public GameObject Player;
+    private GameState PlayerGameState;
+    public GameObject Enemy;
+    private GameState EnemyGameState;
     public GameObject PlayerDeck;
+    public GameObject PassingToken;
+    public GameObject EndOfRoundToken;
     public GameObject EnemyDeck;
     public GameObject WeatherCard;
     public GameObject WeatherField;
@@ -19,10 +26,13 @@ public class PlayerBehavior : NetworkBehaviour
     public GameObject PlayerMelee;
     public GameObject PlayerRange;
     public GameObject PlayerSiege;
-    private int initialCardAmount = 10;
-
-
+    public GameObject PlayerCounter;
+    public GameObject EnemyCounter;
+    private const int DEALTCARDAMOUNT = 10;
+    List<GameObject> PlayerCards;
     List<GameObject> cards = new List<GameObject>();
+    public BattleState state;
+
     // Start is called before the first frame update
     public override void OnStartClient()
     {
@@ -38,36 +48,36 @@ public class PlayerBehavior : NetworkBehaviour
         PlayerRange = GameObject.FindGameObjectWithTag("Player Range");
         PlayerSiege = GameObject.FindGameObjectWithTag("Player Siege");
         WeatherField = GameObject.Find("Weather Field");
+        EnemyCounter = GameObject.Find("EnemyCounter");
+        PlayerCounter = GameObject.Find("PlayerCounter");
+        Player = GameObject.Find("PlayerGameState");
+        PlayerGameState = Player.GetComponent<GameState>();
+        Enemy = GameObject.Find("EnemyGameState");
+        EnemyGameState = Enemy.GetComponent<GameState>();
+        if (isClientOnly)
+        {
+            PlayerGameState.SetBattleState(BattleState.ENEMYTURN);
+            EnemyGameState.SetBattleState(BattleState.PLAYERTURN);
+        }
+        else
+        {
+            PlayerGameState.SetBattleState(BattleState.PLAYERTURN);
+            EnemyGameState.SetBattleState(BattleState.ENEMYTURN);
+        }
     }
 
     [Server]
     public override void OnStartServer()
     {
-/*        int index;
-        for (int i = 0; i < 4; i++)
-        {
-            cards.Add(WeatherCard);
-        }
-        for (int i = 0; i < 9; i++)
-        {
-            index = Random.Range(0, SpecialCards.Count - 1);
-            cards.Add(SpecialCards[index]);
-        }
-        for (int i = 0; i < 17; i++)
-        {
-            index = Random.Range(0, UnitCards.Count - 1);
-            cards.Add(UnitCards[index]);
-        }*/
-    }
 
-   
+    }
 
     [Command]
     public void CmdDealCards()
     {
         cards = PlayerDeck.GetComponent<Deck>().GetCards();
         int index;
-        for(int i = 0; i < initialCardAmount; i++)
+        for(int i = 0; i < DEALTCARDAMOUNT; i++)
         {
             index = Random.Range(0, cards.Count);
             GameObject card = Instantiate(cards[index], new Vector2(0, 0), Quaternion.identity);
@@ -76,6 +86,81 @@ public class PlayerBehavior : NetworkBehaviour
             RpcShowCard(card, "Dealt");
         }
     }
+    
+    [Command]
+    public void CmdPassTurn()
+    {
+        GameObject passingToken = Instantiate(PassingToken, new Vector2(0, 0), Quaternion.identity);
+        RpcPassTurn(passingToken);
+    }
+
+    [ClientRpc]
+    private void RpcPassTurn(GameObject passingToken)
+    {
+        if(hasAuthority)
+        {
+            PlayerGameState.SetBattleState(BattleState.PLAYERPASSING);
+            if(!EnemyGameState.isPlayersPassing())
+            {
+                EnemyGameState.SetBattleState(BattleState.PLAYERTURN);
+            }
+            CmdCheckEndofRound();
+        }
+        else
+        {
+            EnemyGameState.SetBattleState(BattleState.PLAYERPASSING);
+            if(!PlayerGameState.isPlayersPassing())
+            {
+                PlayerGameState.SetBattleState(BattleState.PLAYERTURN);
+            }
+        }
+    }
+
+    [Command]
+    private void CmdCheckEndofRound()
+    {
+        GameObject eorToken = Instantiate(EndOfRoundToken, new Vector2(0, 0), Quaternion.identity);
+        RpcRunEndOfRoundCalculations(eorToken);
+    }
+
+    [ClientRpc]
+    private void RpcRunEndOfRoundCalculations(GameObject EndOfRoundToken)
+    {
+        if(hasAuthority)
+        {
+            if(PlayerGameState.isPlayersPassing() && EnemyGameState.isPlayersPassing())
+            {
+                EndOfRoundCalc();
+            }
+        }
+        else
+        {
+            if (PlayerGameState.isPlayersPassing() && EnemyGameState.isPlayersPassing())
+            {
+                EndOfRoundCalc();
+            }
+        }
+    }
+
+    private void EndOfRoundCalc()
+    {
+        int playerPoints = PlayerCounter.GetComponent<PlayerCounter>().GetCurrentPoints();
+        int enemyPoints = EnemyCounter.GetComponent<PlayerCounter>().GetCurrentPoints();
+        if (playerPoints > enemyPoints)
+        {
+            Debug.Log("Player Wins!!!");
+        }
+        else if(enemyPoints > playerPoints)
+        {
+            Debug.Log("Enemy Wins!!!");
+        }
+        else
+        {
+            Debug.Log("Draw!!!");
+        }
+    }
+
+
 
     public void PlayCard(GameObject card)
     {
@@ -91,7 +176,7 @@ public class PlayerBehavior : NetworkBehaviour
     [ClientRpc]
     void RpcShowCard(GameObject card, string type)
     {
-        if(type == "Dealt")
+        if (type == "Dealt")
         {
             if(hasAuthority)
             {
@@ -99,10 +184,33 @@ public class PlayerBehavior : NetworkBehaviour
             }
             else
             {
-
                 card.transform.SetParent(EnemyHand.transform, false);
-                //card.GetComponent<CardFlipper>().Flip();
             }
+        }
+        else if (type == "Played" && hasAuthority)
+        {
+            if (!EnemyGameState.isPlayersPassing())
+            {
+                if (PlayerHand.GetComponent<CardPile>().GetNumberOfCards() > 0)
+                {
+                    PlayerGameState.SetBattleState(BattleState.ENEMYTURN);
+                }
+                else
+                {
+                    PlayerGameState.SetBattleState(BattleState.PLAYERPASSING);
+                }
+            }
+            else if (PlayerHand.GetComponent<CardPile>().GetNumberOfCards() > 0)
+            {
+                PlayerGameState.SetBattleState(BattleState.PLAYERTURN);
+            }
+            else
+            {
+                PlayerGameState.SetBattleState(BattleState.PLAYERPASSING);
+            }
+            PlayerCounter.GetComponent<PlayerCounter>().UpdateCounter();
+            EnemyCounter.GetComponent<PlayerCounter>().UpdateCounter();
+            CmdCheckEndofRound();
         }
         else if(type == "Played" && !hasAuthority)
         {
@@ -123,26 +231,12 @@ public class PlayerBehavior : NetworkBehaviour
             {
                 card.transform.SetParent(WeatherField.transform, false);
             }
-        }
-        else if(type == "Played")
-        {
-/*           CardPile.CardPileType CardType = card.GetComponent<Card>().GetCardType();
-            if (CardType == CardPile.CardPileType.MELEE_FIELD)
+            if(!PlayerGameState.isPlayersPassing())
             {
-                card.transform.SetParent(PlayerMelee.transform, false);
+                PlayerGameState.SetBattleState(BattleState.PLAYERTURN);
             }
-            else if (CardType == CardPile.CardPileType.RANGE_FIELD)
-            {
-                card.transform.SetParent(PlayerRange.transform, false);
-            }
-            else if (CardType == CardPile.CardPileType.SIEGE_FIELD)
-            {
-                card.transform.SetParent(PlayerSiege.transform, false);
-            }
-            else if (CardType == CardPile.CardPileType.EFFECT_FIELD)
-            {
-                card.transform.SetParent(WeatherField.transform, false);
-            }*/
+            PlayerCounter.GetComponent<PlayerCounter>().UpdateCounter();
+            EnemyCounter.GetComponent<PlayerCounter>().UpdateCounter();
         }
     }
 }

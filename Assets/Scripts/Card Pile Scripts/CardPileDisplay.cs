@@ -12,6 +12,10 @@ public class CardPileDisplay : MonoBehaviour
 
     private float cardPileWidth;
 
+    public float cardWidth;
+    public float cardHeight;
+    public float cardScale;
+
     void Start()
     {
         cardPile = GetComponent<CardPile>();
@@ -31,26 +35,31 @@ public class CardPileDisplay : MonoBehaviour
     {
         if (transform.childCount > 0)
         {
-            RectTransform cardRect = transform.GetChild(0).GetComponent<RectTransform>(); //instance of first card
-            float sumOfCardWidths = cardRect.rect.width * cardRect.transform.localScale.x * transform.childCount;
+            float sumOfCardWidths = 0;
+            for (int child = 0; child < transform.childCount; child++)
+            {
+                RectTransform cardRect = transform.GetChild(child).GetComponent<RectTransform>();
+                sumOfCardWidths += cardRect.rect.width * cardRect.transform.localScale.x;
+            }
+            
             if (rectTransform.rect.width < sumOfCardWidths)
             {
-                DisplayCompactedCardPile(cardRect); //spacing = cardWidth * (cardScale - 1)
+                DisplayCompactedCardPile(); //spacing = cardWidth * (cardScale - 1)
             }
             else
             {
-                DisplayUncompactedCardPile(cardRect);
+                DisplayUncompactedCardPile();
             }
         }
     }
 
-    private void DisplayCompactedCardPile(RectTransform cardRect)
+    private void DisplayCompactedCardPile()
     {
 
-        float visibleCardWidth = cardRect.rect.width * cardRect.transform.localScale.x;
+        float visibleCardWidth = cardWidth * cardScale;
         int remainingCardsToFitOntoPile = transform.childCount - (int)(cardPileWidth / visibleCardWidth);
         int cardsThatFitOntoPile = transform.childCount - remainingCardsToFitOntoPile;
-        float compactedSpacingForCardPile = -(cardRect.rect.width - (cardRect.rect.width * cardRect.transform.localScale.x));
+        float compactedSpacingForCardPile = -(cardWidth - (cardWidth * cardScale));
 
         for (int remainingCardIndex = 1; remainingCardIndex <= remainingCardsToFitOntoPile; remainingCardIndex++)
         {
@@ -62,9 +71,9 @@ public class CardPileDisplay : MonoBehaviour
         gridLayout.spacing = new Vector2(compactedSpacingForCardPile, 0);
     }
 
-    private void DisplayUncompactedCardPile(RectTransform cardRect)
+    private void DisplayUncompactedCardPile()
     {
-        gridLayout.spacing = new Vector2(-(cardRect.rect.width - (cardRect.rect.width * cardRect.transform.localScale.x)), 0);
+        gridLayout.spacing = new Vector2(-(cardWidth - (cardWidth * cardScale)), 0);
     }
 
 }
