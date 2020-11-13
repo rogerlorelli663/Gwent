@@ -80,66 +80,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  UnitCards:
-  - {fileID: 916734033401460993, guid: 2cb6018d3d8789c48942c68fb08eacfc, type: 3}
-  - {fileID: 5890396404809271039, guid: a90b53f4964fed149a5e36c34518a085, type: 3}
-  - {fileID: 7157974187928379989, guid: 8ac89e8f10245894e94d01113e9186f5, type: 3}
-  - {fileID: 6041991267850883662, guid: e1ec206b1d013c54abbb93e52af17dfe, type: 3}
-  - {fileID: 6535010111934896432, guid: d0ead02768ea50e43b7d93a1369cdac0, type: 3}
-  - {fileID: 5636663215187088786, guid: 4ef1cb494221f8e408bfd3fa5955e4b1, type: 3}
-  - {fileID: 1701338479976034748, guid: 2589ce2a91bdf7b458140951c0c3a9a6, type: 3}
-  - {fileID: 8164807659775915408, guid: c8d5ba94c1007474da8281816e1159a1, type: 3}
-  - {fileID: 7127002017162655186, guid: 271e02a85de55fa46806be4805e1fdd3, type: 3}
-  - {fileID: 3044567264127211165, guid: 63cd4363e6e580142a9621db431e55b3, type: 3}
-  - {fileID: 5186920159240887328, guid: bd7f03692500e5243a33e5029f675afd, type: 3}
-  - {fileID: 1319240103419089384, guid: 61180351cdef42b4093abceb51e96efd, type: 3}
-  SpecialCards:
-  - {fileID: 9140815025758585328, guid: a739436479239d646ba2c58630ccc29b, type: 3}
-  - {fileID: 597889526074381979, guid: 205d28def43dba046aeef4b9b3ab05a2, type: 3}
-  - {fileID: 6073982963086480916, guid: ec478eabc1c75484e83e34cfb085c077, type: 3}
-  - {fileID: 5326113136005955768, guid: 5d1e9a0e51648ef42bc6ab2ded955146, type: 3}
-  - {fileID: 2992629468014012362, guid: ba79a4d65fc881d4d93d8703e4456b17, type: 3}
-  - {fileID: 4205496389671065248, guid: c81179f1d5557b747869313c3ba903f5, type: 3}
-  - {fileID: 2789389017382000907, guid: 8712d1cd2f09fdd44a0321433668fca6, type: 3}
-  - {fileID: 7372741672166168272, guid: 9157e8b7ba4b60441a93fb84379a2d0a, type: 3}
-  - {fileID: 241596429582182967, guid: d94c2bd5fad9d0d40b730f1940864601, type: 3}
-  Player1Live: {fileID: 21300000, guid: 059e0200b58f439459fd2ce08a794e91, type: 3}
-  Player1Dead: {fileID: 21300000, guid: 0cfb8a81621280e40affc8a04ee98546, type: 3}
-  Player2Live: {fileID: 21300000, guid: a20ad592324eeca408ef226fc1ad3752, type: 3}
-  Player2Dead: {fileID: 21300000, guid: aafbaa1d513796647875fdadbce9df22, type: 3}
-  Menu: {fileID: 0}
-  Rounds: {fileID: 0}
+  Fighters:
+  - {fileID: 6935620523227465546, guid: edc8be0b5b459ff47acc96413d7fae77, type: 3}
+  - {fileID: 6935620523227465546, guid: 62ae92818d07d3349b973b6469c0f2e1, type: 3}
+  - {fileID: 6935620523227465546, guid: 3ed4efaa235ac3b479637c9f03a1d8a4, type: 3}
+  Corvettes:
+  - {fileID: 6935620523227465546, guid: 1dc0b7475aba01a48830c8d552e537b4, type: 3}
+  - {fileID: 6935620523227465546, guid: 6545166b5ac164a469b38d540e2bbf98, type: 3}
+  - {fileID: 6935620523227465546, guid: c9b5fd12892765448b348750e6efbc99, type: 3}
+  - {fileID: 6935620523227465546, guid: 1add03644058d7a43bd25ec318f25794, type: 3}
+  - {fileID: 6935620523227465546, guid: bf451ba17c5f1c1428e46c46828cf9de, type: 3}
+  Frigates:
+  - {fileID: 6935620523227465546, guid: 5748e642394d12245993097040963764, type: 3}
+  - {fileID: 6935620523227465546, guid: 8f91f93878adb1d42aeacb43e4f7b3c1, type: 3}
+  - {fileID: 6935620523227465546, guid: 8661562bb9800d84e969b062b1cda7e0, type: 3}
+  Capitalships:
+  - {fileID: 6935620523227465546, guid: 0fdd2e6870534b5438b938e4cdb01625, type: 3}
+  - {fileID: 6935620523227465546, guid: 7bb397f7cb118914fbbec9dd5555414a, type: 3}
+  - {fileID: 6935620523227465546, guid: 1b950adae1f7ace4fac1ec29b575a305, type: 3}
   Player: {fileID: 0}
   Enemy: {fileID: 0}
   PlayerDeck: {fileID: 0}
-  PlayerDiscard: {fileID: 0}
   PassingToken: {fileID: 1499672563657424161, guid: 3482a36b51db795458e39b14a1e0bfb4,
     type: 3}
   EndOfRoundToken: {fileID: 1499672563657424161, guid: e6cea7ccb9b95004a8740833d4c8073a,
     type: 3}
   EnemyDeck: {fileID: 0}
-  EnemyDiscard: {fileID: 0}
   WeatherCard: {fileID: 0}
   WeatherField: {fileID: 0}
   EnemyHand: {fileID: 0}
   EnemyMelee: {fileID: 0}
-  EnemyRange: {fileID: 0}
-  EnemySiege: {fileID: 0}
   PlayerHand: {fileID: 0}
   PlayerMelee: {fileID: 0}
-  PlayerRange: {fileID: 0}
-  PlayerSiege: {fileID: 0}
   PlayerCounter: {fileID: 0}
   EnemyCounter: {fileID: 0}
-  PlayerCrystal: {fileID: 205132271523943819, guid: 0e22e8f1565711b438018060d4317f99,
-    type: 3}
-  PlayerCrystalDone: {fileID: 8597522033800721379, guid: b525bb54a80a40e43a0b9782cf66b38f,
-    type: 3}
-  EnemyCrystal: {fileID: 2941087243283094854, guid: a0267b671d9955247ad7dfba2f6afcdf,
-    type: 3}
-  EnemyCrystalDone: {fileID: 6153179926840209782, guid: 7fd79b0560e47a74c9e2a656131735cb,
-    type: 3}
-  PlayerCrystalPile: {fileID: 626641205925772213, guid: 9c678098af9ebb5419227cc29fb069b2,
-    type: 3}
-  EnemyCrystalPile: {fileID: 4753202111342636633, guid: bae1bcdbc83503140a33b0a3800efc33,
-    type: 3}
+  state: 0

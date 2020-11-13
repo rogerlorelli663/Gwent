@@ -20,8 +20,8 @@ public class PlayerCounter : MonoBehaviour
         int sum = 0;
         string totalPower;
         sum += Melee.GetPileTotal();
-        sum += Range.GetPileTotal();
-        sum += Siege.GetPileTotal();
+/*        sum += Range.GetPileTotal();
+        sum += Siege.GetPileTotal();*/
         totalPower = "" + sum;
         this.GetComponentInChildren<Text>().text = totalPower;
         this.totalPoints = sum;

@@ -64,7 +64,7 @@ public class SelectCardFromHand : MonoBehaviour
         
         foreach (RaycastHit2D objectHit in objectsOnMousePosition)
         {
-            if(objectHit.collider.gameObject.GetComponent<Card>() != null)
+            if(objectHit.collider.gameObject.GetComponent<CQBCard>() != null)
             {
                 return objectHit.collider.gameObject;
             }
