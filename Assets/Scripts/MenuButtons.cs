@@ -6,23 +6,16 @@ public class MenuButtons : MonoBehaviour
 {
     // Start is called before the first frame update
     // Update is called once per frame
-    private GameObject MainMenuButton;
-    private GameObject TutorialButton;
-    private GameObject QuitButton;
+    public GameObject MainMenuButton;
+    public GameObject TutorialButton;
+    public GameObject QuitButton;
     private List<GameObject> buttons;
     private bool pressed;
 
     private void Start()
     {
         pressed = false;
-        MainMenuButton = GameObject.Find("MainMenu Button");
-        TutorialButton = GameObject.Find("Tutorial Button");
-        QuitButton = GameObject.Find("Quit");
-        TurnButtonsOFF(TutorialButton);
-        TurnButtonsOFF(MainMenuButton);
-        TurnButtonsOFF(QuitButton);
     }
-
     public void OnPress()
     {
         if(pressed)
@@ -38,6 +31,15 @@ public class MenuButtons : MonoBehaviour
             TurnButtonsON(QuitButton);
         }
         pressed = !pressed;
+    }
+
+    public void Reset()
+    {
+        pressed = false; 
+        TurnButtonsOFF(TutorialButton);
+        TurnButtonsOFF(MainMenuButton);
+        TurnButtonsOFF(QuitButton);
+
     }
     private void TurnButtonsOFF(GameObject button)
     {

@@ -61,7 +61,7 @@ public class PileCounter : MonoBehaviour
         int sum = 0;
         foreach(GameObject card in cards)
         {
-            cardsPower[index] = card.GetComponent<Card>().GetPower();
+            cardsPower[index] = card.GetComponent<CQBCard>().GetPower();
             index++;
         }
         if(weatherCardActive)

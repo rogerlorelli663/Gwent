@@ -6,7 +6,7 @@ public class CardHighlight : MonoBehaviour
 {
 
     private Vector2 originalScale;
-    public Vector2 highlightedScale = new Vector2(1f, 1f);
+    public Vector2 highlightedScale = new Vector2(1, 1);
 
     private GameObject highlightedCard;
 
@@ -23,7 +23,9 @@ public class CardHighlight : MonoBehaviour
         {
             originalScale = hitCard.transform.localScale;
             highlightedCard = hitCard;
-            highlightedCard.transform.localScale = highlightedScale;
+            Debug.Log(hitCard.transform.localScale);
+            highlightedCard.transform.localScale = new Vector3(1,1);
+            Debug.Log(hitCard.transform.localScale);
             highlightedCard.transform.position = new Vector3(highlightedCard.transform.position.x, highlightedCard.transform.position.y, highlightedCard.transform.position.z - 1);
         }
         else if (hitCard != highlightedCard && highlightedCard != null)
@@ -41,7 +43,7 @@ public class CardHighlight : MonoBehaviour
 
         foreach (RaycastHit2D objectHit in objectsOnMousePosition)
         {
-            if (objectHit.collider.gameObject.GetComponent<Card>() != null)
+            if (objectHit.collider.gameObject.GetComponent<CQBCard>() != null)
             {
                 return objectHit.collider.gameObject;
             }

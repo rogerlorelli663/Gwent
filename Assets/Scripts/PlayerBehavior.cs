@@ -5,8 +5,11 @@ using Mirror;
 
 public class PlayerBehavior : NetworkBehaviour
 {
-    [SerializeField] List<GameObject> UnitCards;
-    [SerializeField] List<GameObject> SpecialCards;
+    [SerializeField] List<GameObject> Fighters;
+    [SerializeField] List<GameObject> Corvettes;
+    [SerializeField] List<GameObject> Frigates;
+    [SerializeField] List<GameObject> Capitalships;
+
 
     public GameObject Player;
     private GameState PlayerGameState;
@@ -20,12 +23,8 @@ public class PlayerBehavior : NetworkBehaviour
     public GameObject WeatherField;
     public GameObject EnemyHand;
     public GameObject EnemyMelee;
-    public GameObject EnemyRange;
-    public GameObject EnemySiege;
     public GameObject PlayerHand;
     public GameObject PlayerMelee;
-    public GameObject PlayerRange;
-    public GameObject PlayerSiege;
     public GameObject PlayerCounter;
     public GameObject EnemyCounter;
     private const int DEALTCARDAMOUNT = 10;
@@ -40,13 +39,9 @@ public class PlayerBehavior : NetworkBehaviour
         EnemyDeck = GameObject.Find("Enemy Deck");
         EnemyHand = GameObject.FindGameObjectWithTag("Enemy Hand");
         EnemyMelee = GameObject.FindGameObjectWithTag("Enemy Melee");
-        EnemyRange = GameObject.FindGameObjectWithTag("Enemy Range");
-        EnemySiege = GameObject.FindGameObjectWithTag("Enemy Siege");
         PlayerDeck = GameObject.Find("Player Deck");
         PlayerHand = GameObject.FindGameObjectWithTag("Player Hand");
         PlayerMelee = GameObject.FindGameObjectWithTag("Player Melee");
-        PlayerRange = GameObject.FindGameObjectWithTag("Player Range");
-        PlayerSiege = GameObject.FindGameObjectWithTag("Player Siege");
         WeatherField = GameObject.Find("Weather Field");
         EnemyCounter = GameObject.Find("EnemyCounter");
         PlayerCounter = GameObject.Find("PlayerCounter");
@@ -77,7 +72,7 @@ public class PlayerBehavior : NetworkBehaviour
     {
         cards = PlayerDeck.GetComponent<Deck>().GetCards();
         int index;
-        for(int i = 0; i < DEALTCARDAMOUNT; i++)
+        for (int i = 0; i < DEALTCARDAMOUNT; i++)
         {
             index = Random.Range(0, cards.Count);
             GameObject card = Instantiate(cards[index], new Vector2(0, 0), Quaternion.identity);
@@ -86,7 +81,7 @@ public class PlayerBehavior : NetworkBehaviour
             RpcShowCard(card, "Dealt");
         }
     }
-    
+
     [Command]
     public void CmdPassTurn()
     {
@@ -97,10 +92,10 @@ public class PlayerBehavior : NetworkBehaviour
     [ClientRpc]
     private void RpcPassTurn(GameObject passingToken)
     {
-        if(hasAuthority)
+        if (hasAuthority)
         {
             PlayerGameState.SetBattleState(BattleState.PLAYERPASSING);
-            if(!EnemyGameState.isPlayersPassing())
+            if (!EnemyGameState.isPlayersPassing())
             {
                 EnemyGameState.SetBattleState(BattleState.PLAYERTURN);
             }
@@ -109,7 +104,7 @@ public class PlayerBehavior : NetworkBehaviour
         else
         {
             EnemyGameState.SetBattleState(BattleState.PLAYERPASSING);
-            if(!PlayerGameState.isPlayersPassing())
+            if (!PlayerGameState.isPlayersPassing())
             {
                 PlayerGameState.SetBattleState(BattleState.PLAYERTURN);
             }
@@ -126,9 +121,9 @@ public class PlayerBehavior : NetworkBehaviour
     [ClientRpc]
     private void RpcRunEndOfRoundCalculations(GameObject EndOfRoundToken)
     {
-        if(hasAuthority)
+        if (hasAuthority)
         {
-            if(PlayerGameState.isPlayersPassing() && EnemyGameState.isPlayersPassing())
+            if (PlayerGameState.isPlayersPassing() && EnemyGameState.isPlayersPassing())
             {
                 EndOfRoundCalc();
             }
@@ -150,7 +145,7 @@ public class PlayerBehavior : NetworkBehaviour
         {
             Debug.Log("Player Wins!!!");
         }
-        else if(enemyPoints > playerPoints)
+        else if (enemyPoints > playerPoints)
         {
             Debug.Log("Enemy Wins!!!");
         }
@@ -178,7 +173,7 @@ public class PlayerBehavior : NetworkBehaviour
     {
         if (type == "Dealt")
         {
-            if(hasAuthority)
+            if (hasAuthority)
             {
                 card.transform.SetParent(PlayerHand.transform, false);
             }
@@ -198,6 +193,7 @@ public class PlayerBehavior : NetworkBehaviour
                 else
                 {
                     PlayerGameState.SetBattleState(BattleState.PLAYERPASSING);
+                    GameObject.Find("PassingButton").SetActive(false);
                 }
             }
             else if (PlayerHand.GetComponent<CardPile>().GetNumberOfCards() > 0)
@@ -212,26 +208,18 @@ public class PlayerBehavior : NetworkBehaviour
             EnemyCounter.GetComponent<PlayerCounter>().UpdateCounter();
             CmdCheckEndofRound();
         }
-        else if(type == "Played" && !hasAuthority)
+        else if (type == "Played" && !hasAuthority)
         {
-            CardPile.CardPileType CardType = card.GetComponent<Card>().GetCardType();
-            if(CardType == CardPile.CardPileType.MELEE_FIELD)
+            CardPile.CardPileType CardType = card.GetComponent<CQBCard>().GetCardType();
+            if (CardType == CardPile.CardPileType.MELEE_FIELD)
             {
                 card.transform.SetParent(EnemyMelee.transform, false);
-            }
-            else if (CardType == CardPile.CardPileType.RANGE_FIELD)
-            {
-                card.transform.SetParent(EnemyRange.transform, false);
-            }
-            else if (CardType == CardPile.CardPileType.SIEGE_FIELD)
-            {
-                card.transform.SetParent(EnemySiege.transform, false);
             }
             else if (CardType == CardPile.CardPileType.EFFECT_FIELD)
             {
                 card.transform.SetParent(WeatherField.transform, false);
             }
-            if(!PlayerGameState.isPlayersPassing())
+            if (!PlayerGameState.isPlayersPassing())
             {
                 PlayerGameState.SetBattleState(BattleState.PLAYERTURN);
             }

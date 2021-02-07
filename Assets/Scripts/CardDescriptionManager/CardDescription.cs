@@ -12,7 +12,7 @@ public class CardDescription : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+/*    void Update()
     {
         CardSelector cvm = FindObjectOfType<CardSelector>();
         if (cvm.IsCardPlaceableAndInCardSelector())
@@ -29,7 +29,7 @@ public class CardDescription : MonoBehaviour
         {
             TurnDescriptionFieldOFF();
         }
-    }
+    }*/
 
     private void TurnDescriptionFieldON()
     {

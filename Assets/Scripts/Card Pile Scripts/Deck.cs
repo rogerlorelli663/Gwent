@@ -5,28 +5,33 @@ using UnityEngine;
 public class Deck : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject UnitCard;
-    public GameObject WeatherCard;
-    public GameObject SpecialUnitCard;
-    [SerializeField] List<GameObject> UnitCards;
-    [SerializeField] List<GameObject> SpecialCards;
+    [SerializeField] List<GameObject> Fighters;
+    [SerializeField] List<GameObject> Corvettes;
+    [SerializeField] List<GameObject> Frigates;
+    [SerializeField] List<GameObject> Capitalships;
     private List<GameObject> cards = new List<GameObject>();
     void Start()
     {
         int index;
-        for(int i = 0; i < 4; i++)
+        for(int i = 0; i < 25; i++)
         {
-            cards.Add(WeatherCard);
+            index = Random.Range(0, Fighters.Count);
+            cards.Add(Fighters[index]);
         }
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 20; i++)
         {
-            index = Random.Range(0, SpecialCards.Count);
-            cards.Add(SpecialCards[index]);
+            index = Random.Range(0, Corvettes.Count);
+            cards.Add(Corvettes[index]);
         }
-        for (int i = 0; i < 17; i++)
+        for (int i = 0; i < 15; i++)
         {
-            index = Random.Range(0, UnitCards.Count);
-            cards.Add(UnitCards[index]);
+            index = Random.Range(0, Frigates.Count);
+            cards.Add(Frigates[index]);
+        }
+        for (int i = 0; i < 10; i++)
+        {
+            index = Random.Range(0, Capitalships.Count);
+            cards.Add(Capitalships[index]);
         }
     }
 

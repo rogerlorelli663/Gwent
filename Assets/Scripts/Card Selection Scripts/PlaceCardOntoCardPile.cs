@@ -23,7 +23,7 @@ public class PlaceCardOntoCardPile : MonoBehaviour
             if (cardPile != null && cardSelector.IsCardPlaceableAndInCardSelector() && !cardPile.tag.Contains("Enemy Melee") && !cardPile.tag.Contains("Enemy Range") && !cardPile.tag.Contains("Enemy Siege"))
             {
                 card = cardSelector.GetOriginalCard();
-                cardType = card.GetComponent<Card>().GetCardType();
+                cardType = card.GetComponent<CQBCard>().GetCardType();
                 if (cardType == cardPile.GetComponent<CardPile>().GetCardPileType())
                 {
                     NetworkIdentity networkIdentity = NetworkClient.connection.identity;
